@@ -27,7 +27,7 @@ st.set_page_config(
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-st.sidebar.markdown('<h1 style="margin-left:8%; color:	#FA8072 ">Kutch Water Quality Monitoring Dashboard </h1>',
+st.sidebar.markdown('<h1 style="margin-left:8%; color:	#FF9933 ">Kutch Water Quality Monitoring Dashboard </h1>',
                     unsafe_allow_html=True)
 
 add_selectbox = st.sidebar.radio(
