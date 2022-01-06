@@ -7,7 +7,7 @@ import joblib
 import osmnx as ox
 import shapely.wkt
 import pandas as pd
-import plotly.express as px
+#import plotly.express as px
 import streamlit as st
 import streamlit.components.v1 as components
 import time
