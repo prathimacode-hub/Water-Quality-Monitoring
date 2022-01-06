@@ -169,6 +169,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
 elif add_selectbox == 'Result':
     
     st.subheader('Our Result')
+    st.markdown('<h4></h4>', unsafe_allow_html=True)
+    st.image("", width=500)
         
         
 elif add_selectbox == 'Visualizations':
