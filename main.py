@@ -7,10 +7,12 @@ import joblib
 import osmnx as ox
 import shapely.wkt
 import pandas as pd
+import plotly.express as px
 import streamlit as st
 import streamlit.components.v1 as components
 import time
 import base64
+from branca.element import Figure
 from folium.features import DivIcon
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
@@ -70,6 +72,7 @@ if add_selectbox == 'Home':
     
     st.markdown('', unsafe_allow_html=True)
 
+    
 elif add_selectbox == 'About':
     
     st.subheader('ABOUT THE PROJECT')
@@ -94,7 +97,8 @@ elif add_selectbox == 'About':
          \
             '
                 , unsafe_allow_html=True)
-    
+ 
+
 elif add_selectbox == 'Features':
 
     st.subheader('PROJECT ENDORSEMENTS')
@@ -103,68 +107,51 @@ elif add_selectbox == 'Features':
     st.markdown('• ', unsafe_allow_html=True)
     st.markdown('• ', unsafe_allow_html=True)
     
+    
 elif add_selectbox == 'Select AOI Data Parameters':
-    st.subheader('Find Safest Path')
-
-    sentence = st.text_input('Input your current location:')
-
-    # G_walk = ox.graph_from_place('Manhattan Island, New York City, New York, USA',
-    #                          network_type='walk')
-
-   # G_walk = joblib.load('G_walk.sav')
-
-   # orig_node = ox.get_nearest_node(G_walk,
-   #                                (40.748441, -73.985664))
-
-   # dest_node = ox.get_nearest_node(G_walk,
-   #                                (40.748441, -73.4))
-
-   # route = nx.shortest_path(G_walk,
-   #                         orig_node,
-   #                          dest_node,
-   #                          weight='length')
-
-   # route_map = ox.plot_route_folium(G_walk, route)
-
-   # folium_static(route_map, width=900)
-
-elif add_selectbox == 'Result':
-    st.subheader('Our Result')
-
+    
+    st.subheader('Select for AOI Data Parameters')    
+    
     col1, col2 = st.columns(2)
 
-    map_type = col1.selectbox(
-        "Shelters",
-        ('横手市 (Earthquakes)', '湯沢市 (Tsunamis)', '湯沢市 (Floods)')
-    )
-
-    ward_type = col2.selectbox(
-        "Ward",
-        ( '横手市 (Nakagawa Ward)', '横手市 (Midori Ward)'
-        )
+    aoi_type = col1.selectbox(
+        "Select Area of Interest (AOI)",
+        ("Topansar Lake","Shakoor Lake","Hamirsar Lake")
     )
     
-    if st.button('Search'):
+    d = st.date_input("Select Date")
 
-        if map_type == 'Earthquakes':
-            map_data = pd.read_csv('nakagawa_earthquake_shelters.csv')
-        elif map_type == 'Tsunamis':
-            map_data = pd.read_csv('nakagawa_tsunami_shelters.csv')
-        elif map_type == 'Floods':
-            map_data = pd.read_csv('nakagawa_flood_shelters.csv')
+    prm_type = col2.selectbox(
+        "Data Selection Parameters",
+        ("pH","Salinity","Turbidity","Sea Surface Temperature","Chlorophyll","Suspended matter",
+     "Dissolved Organic Matter","Dissolved Oxygen","Sulphates","Calcium Carbonate")
+    )
+    
+    if st.button('Submit'):
 
-        ward = ward_type.split(" ")
+        if aoi_type == 'Topansar Lake':
+            aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
+        elif aoi_type == 'Shakoor Lake':
+            aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
+        elif aoi_type == 'Hamirsar Lake':
+            aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
 
-        details = map_data[map_data['ward']==ward[0]]
+        prm = prm_type.split(" ")
+
+        details = aoi_data[aoi_data['prm']==prm[0]]
 
         coordinates = {
-            #'中川区 (Nakagawa Ward)': [35.1332, 136.8350],
-            #'中川区 (Nakagawa Ward)': [35.139288, 136.8128218]
-            '中川区 (Nakagawa Ward)': [35.1392027, 136.7778013],
-            '緑区 (Midori Ward)': [35.0852, 136.9708]
+            'Kutch Region': [23.7337,69.8597]
         }
 
-        m = folium.Map(location=coordinates[ward_type], zoom_start=10)
+        m = folium.Map(location=coordinates[prm_type], zoom_start=10)
+        folium.TileLayer('Stamen Terrain').add_to(m)
+        folium.TileLayer('Stamen Toner').add_to(m)
+        folium.TileLayer('Stamen Water Color').add_to(m)
+        folium.TileLayer('cartodbpositron').add_to(m)
+        folium.TileLayer('cartodbdark_matter').add_to(m)
+        folium.LayerControl().add_to(m)
+        m
         for index, row in details.iterrows():
             if row['geometry'].startswith("POINT"):
                 geometry = shapely.wkt.loads(row['geometry'])
@@ -176,24 +163,25 @@ elif add_selectbox == 'Result':
                 [geometry.y, geometry.x], popup=row['display_name'],
             ).add_to(m)
 
-        # london_location = [35.183334,136.899994]
-
-        # m = folium.Map(location=london_location, zoom_start=15)
         folium_static(m, width=900)
+
+
+elif add_selectbox == 'Result':
+    
+    st.subheader('Our Result')
         
         
 elif add_selectbox == 'Visualizations':
     
-    
     st.subheader('PROJECT VISUALIZATIONS')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("Japan_Earthquakes_Zoning.png", width=500)
+    st.image("", width=500)
     st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("Nakagawa_Shelter_Maps.png", width=500)
+    st.image("", width=500)
     st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("Nakagawa_Building_Density_Score.png", width=500)
+    st.image("", width=500)
     st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("Nakagawa_Distance_Risk_Score.png", width=500)
+    st.image("", width=500)
    
     
 elif add_selectbox == 'Conclusion':
@@ -211,9 +199,9 @@ elif add_selectbox == 'Team':
     
     st.subheader('COLLABORATORS')
 
-    st.markdown('<a href="">Tanisha Banik</a>',
+    st.markdown('<a href="https://www.linkedin.com/in/tanisha-banik-04b511173/">Tanisha Banik</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="">Renju Zacharaiah</a>',
+    st.markdown('<a href="https://www.linkedin.com/in/renju-zachariah-30982247/">Renju Zacharaiah</a>',
                 unsafe_allow_html=True)
     st.markdown('<a href="">Sai Villiers</a>',
                 unsafe_allow_html=True)
@@ -221,7 +209,7 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/prathima-kadari/">Prathima Kadari</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="">Deepali Bidwai</a>',
+    st.markdown('<a href="https://www.linkedin.com/in/deepali-bidwai/">Deepali Bidwai</a>',
                 unsafe_allow_html=True)
     st.markdown('<a href="">Himanshu Mishra</a>',
                 unsafe_allow_html=True)
@@ -229,10 +217,10 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="">Kiran Ryakala</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="">Drij Chudasama</a>',
+    st.markdown('<a href="https://www.linkedin.com/in/drij-chudasama-2a112a168/">Drij Chudasama</a>',
                 unsafe_allow_html=True)
 
     st.subheader('PROJECT MANAGER')
 
-    st.markdown('<a href="">Chancy Shah</a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://www.linkedin.com/in/chancy-shah-671787119/">Chancy Shah</a>', unsafe_allow_html=True)
                 
