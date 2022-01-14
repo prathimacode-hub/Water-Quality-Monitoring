@@ -188,14 +188,14 @@ elif add_selectbox == 'Result':
 elif add_selectbox == 'Visualizations':
     
     st.subheader('PROJECT VISUALIZATIONS')
-    st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("", width=500)
-    st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("", width=500)
-    st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("", width=500)
-    st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("", width=500)
+    st.markdown('<h4>Harmisar Lake</h4>', unsafe_allow_html=True)
+    st.image("https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Visualization/Harmisar%20Lake.png", width=500)
+    st.markdown('<h4>Shinai Lake</h4>', unsafe_allow_html=True)
+    st.image("https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Visualization/Shinai%20Lake.png", width=500)
+    st.markdown('<h4>Tappar Lake</h4>', unsafe_allow_html=True)
+    st.image("https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Visualization/Tappar%20Lake.png", width=500)
+    #st.markdown('<h4></h4>', unsafe_allow_html=True)
+    #st.image("", width=500)
    
     
 elif add_selectbox == 'Conclusion':
@@ -227,7 +227,7 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="">Himanshu Mishra</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="">Bharati Panigrahi</a>',
+    st.markdown('<a href="https://www.linkedin.com/in/bharati-panigrahi-10a9461a0/">Bharati Panigrahi</a>',
                 unsafe_allow_html=True)
     st.markdown('<a href="">Kiran Ryakala</a>',
                 unsafe_allow_html=True)
