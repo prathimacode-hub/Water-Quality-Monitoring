@@ -110,7 +110,7 @@ elif add_selectbox == 'Features':
     
 elif add_selectbox == 'Select AOI Data Parameters':
     
-    st.subheader('Select for AOI Data Parameters')    
+    st.subheader('SELECT FOR AOI DATA PARAMETERS')    
     
     col1, col2 = st.columns(2)
 
@@ -174,7 +174,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
 elif add_selectbox == 'Result':
     
-    st.subheader('Our Result')
+    st.subheader('OUR RESULT')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
     st.image("", width=500)
         
