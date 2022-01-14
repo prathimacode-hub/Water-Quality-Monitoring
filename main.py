@@ -135,11 +135,17 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
 
         if aoi_type == 'Shinai Lake':
-            aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Shinai%20Lake/Data_Shinai_Lake_2019')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Shinai%20Lake/Data_2020_Shinai_Lake')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Shinai%20Lake/Data_2021_Shinai_Lake')
         elif aoi_type == 'Harmirsar Lake':
-            aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
-        elif aoi_type == 'Tappar Reservoir Lake':
-            aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Harmisar%20Lake/Data_2019_Harmisar_Lake')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Harmisar%20Lake/Data_2020_Harmisar_Lake')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Harmisar%20Lake/Data_2021_Harmisar_Lake')
+        elif aoi_type == 'Tappar Lake':
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Tappar%20Lake/Data_2019_Tappar_Lake')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Tappar%20Lake/Data_2020_Tappar_Lake')
+            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Tappar%20Lake/Data_2021_Tappar_Lake')
 
         prm = prm_type.split(" ")
 
