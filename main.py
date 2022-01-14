@@ -116,24 +116,29 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     aoi_type = col1.selectbox(
         "Select Area of Interest (AOI)",
-        ("Topansar Lake","Shakoor Lake","Hamirsar Lake")
+        ("Shinai Lake","Harmirsar Lake", "Tappar Reservoir Lake")
     )
     
-    d = st.date_input("Select Date")
-
     prm_type = col2.selectbox(
         "Data Selection Parameters",
-        ("pH","Salinity","Turbidity","Sea Surface Temperature","Chlorophyll","Suspended matter",
-     "Dissolved Organic Matter","Dissolved Oxygen","Sulphates","Calcium Carbonate")
+        ("pH","Salinity","Turbidity","Land Surface Temperature","Chlorophyll","Suspended matter",
+     "Dissolved Organic Matter","Dissolved Oxygen")
     )
+    
+    col3, col4 = st.columns(2)
+    
+    d1 = st.date_input("Start Date")
+    
+    d2 = st.date_input("End Date")
+    
     
     if st.button('Submit'):
 
-        if aoi_type == 'Topansar Lake':
+        if aoi_type == 'Shinai Lake':
             aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
-        elif aoi_type == 'Shakoor Lake':
+        elif aoi_type == 'Harmirsar Lake':
             aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
-        elif aoi_type == 'Hamirsar Lake':
+        elif aoi_type == 'Tappar Reservoir Lake':
             aoi_data = pd.read_csv('https://perso.telecom-paristech.fr/eagan/class/igr204/data/cars.csv')
 
         prm = prm_type.split(" ")
@@ -151,7 +156,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
         folium.TileLayer('cartodbpositron').add_to(m)
         folium.TileLayer('cartodbdark_matter').add_to(m)
         folium.LayerControl().add_to(m)
-        m
+        # m
+        
         for index, row in details.iterrows():
             if row['geometry'].startswith("POINT"):
                 geometry = shapely.wkt.loads(row['geometry'])
