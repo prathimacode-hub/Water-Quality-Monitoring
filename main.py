@@ -186,11 +186,11 @@ elif add_selectbox == 'Visualizations':
     
     st.subheader('PROJECT VISUALIZATIONS')
     st.markdown('<h4>Harmisar Lake</h4>', unsafe_allow_html=True)
-    st.image("https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Visualization/Harmisar%20Lake.png", width=500)
+    st.image("harmsisar_lake.png", width=500)
     st.markdown('<h4>Shinai Lake</h4>', unsafe_allow_html=True)
-    st.image("https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Visualization/Shinai%20Lake.png", width=500)
+    st.image("shinai_lake.png", width=500)
     st.markdown('<h4>Tappar Lake</h4>', unsafe_allow_html=True)
-    st.image("https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Visualization/Tappar%20Lake.png", width=500)
+    st.image("tappar_lake.png", width=500)
     #st.markdown('<h4></h4>', unsafe_allow_html=True)
     #st.image("", width=500)
    
