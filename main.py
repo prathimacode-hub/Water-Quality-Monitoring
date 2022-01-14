@@ -186,11 +186,11 @@ elif add_selectbox == 'Visualizations':
     
     st.subheader('PROJECT VISUALIZATIONS')
     st.markdown('<h4>Harmisar Lake</h4>', unsafe_allow_html=True)
-    st.image("harmisar_lake.png", width=300)
+    st.image("harmisar_lake.png", width=400)
     st.markdown('<h4>Shinai Lake</h4>', unsafe_allow_html=True)
-    st.image("shinai_lake.png", width=300)
+    st.image("shinai_lake.png", width=400)
     st.markdown('<h4>Tappar Lake</h4>', unsafe_allow_html=True)
-    st.image("tappar_lake.png", width=300)
+    st.image("tappar_lake.png", width=400)
     #st.markdown('<h4></h4>', unsafe_allow_html=True)
     #st.image("", width=500)
    
