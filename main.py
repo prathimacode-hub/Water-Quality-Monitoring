@@ -132,17 +132,17 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
 
 #        if aoi_type == 'Shinai Lake':
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Shinai%20Lake/Data_Shinai_Lake_2019')
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Shinai%20Lake/Data_2020_Shinai_Lake')
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Shinai%20Lake/Data_2021_Shinai_Lake')
+#            aoi_data = pd.read_csv('/Dataset/Shinai%20Lake/Data_Shinai_Lake_2019.csv')
+#            aoi_data = pd.read_csv('/Dataset/Shinai%20Lake/Data_2020_Shinai_Lake.csv')
+#            aoi_data = pd.read_csv('/Dataset/Shinai%20Lake/Data_2021_Shinai_Lake.csv')
 #        elif aoi_type == 'Harmirsar Lake':
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Harmisar%20Lake/Data_2019_Harmisar_Lake')
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Harmisar%20Lake/Data_2020_Harmisar_Lake')
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Harmisar%20Lake/Data_2021_Harmisar_Lake')
+#            aoi_data = pd.read_csv('/Dataset/Harmisar%20Lake/Data_2019_Harmisar_Lake.csv')
+#            aoi_data = pd.read_csv('/Dataset/Harmisar%20Lake/Data_2020_Harmisar_Lake.csv')
+#            aoi_data = pd.read_csv('/Dataset/Harmisar%20Lake/Data_2021_Harmisar_Lake.csv')
 #        elif aoi_type == 'Tappar Lake':
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Tappar%20Lake/Data_2019_Tappar_Lake')
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Tappar%20Lake/Data_2020_Tappar_Lake')
-#            aoi_data = pd.read_csv('https://github.com/prathimacode-hub/Water-Quality-Monitoring/blob/main/Dataset/Tappar%20Lake/Data_2021_Tappar_Lake')
+#            aoi_data = pd.read_csv('/Dataset/Tappar%20Lake/Data_2019_Tappar_Lake.csv')
+#            aoi_data = pd.read_csv('/Dataset/Tappar%20Lake/Data_2020_Tappar_Lake.csv')
+#            aoi_data = pd.read_csv('/Dataset/Tappar%20Lake/Data_2021_Tappar_Lake.csv')
 
         prm = prm_type.split(" ")
 
@@ -186,11 +186,11 @@ elif add_selectbox == 'Visualizations':
     
     st.subheader('PROJECT VISUALIZATIONS')
     st.markdown('<h4>Harmisar Lake</h4>', unsafe_allow_html=True)
-    st.image("harmsisar_lake.png", width=500)
+    st.image("/Visualization/harmisar_lake.png", width=500)
     st.markdown('<h4>Shinai Lake</h4>', unsafe_allow_html=True)
-    st.image("shinai_lake.png", width=500)
+    st.image("/Visualization/shinai_lake.png", width=500)
     st.markdown('<h4>Tappar Lake</h4>', unsafe_allow_html=True)
-    st.image("tappar_lake.png", width=500)
+    st.image("/Visualization/tappar_lake.png", width=500)
     #st.markdown('<h4></h4>', unsafe_allow_html=True)
     #st.image("", width=500)
    
