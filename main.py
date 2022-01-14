@@ -70,7 +70,10 @@ if add_selectbox == 'Home':
     
     st.subheader('PROBLEM STATEMENT')
     
-    st.markdown('', unsafe_allow_html=True)
+    st.markdown('Our problem statement is to develop a centralized dashboard with different water quality parameters for analyzing, interpretation, and visualization \ 
+         in near real-time using Remote Sensing and AI for better decision making. This will identify if any parameter is not within standard limits for taking up an \ 
+         immediate action and \ reinforce the abilities to monitor water quality more effectively & efficiently.', 
+         unsafe_allow_html=True)
 
     
 elif add_selectbox == 'About':
@@ -78,15 +81,11 @@ elif add_selectbox == 'About':
     st.subheader('ABOUT THE PROJECT')
 
     st.markdown('<h4>Project Goals</h4>', unsafe_allow_html=True)
-    st.markdown('• ', unsafe_allow_html=True) 
-    st.markdown('• ', unsafe_allow_html=True) 
-    st.markdown('• ', unsafe_allow_html=True) 
-    st.markdown('• ', unsafe_allow_html=True) 
-    st.markdown('• ', unsafe_allow_html=True) 
-    st.markdown('• ', unsafe_allow_html=True) 
+    st.markdown('• Water Quality Indicator Dashboard for Analysis, Interpretation and Visualization near Real Time.', unsafe_allow_html=True) 
+    st.markdown('• Compare Real Water Quality Parameters with Standard Water Quality Limits', unsafe_allow_html=True) 
     
     st.markdown('<h4>Location Choosen</h4>', unsafe_allow_html=True)
-    st.markdown('',
+    st.markdown('Harmisar Lake, Shinai Lake, Tappar Lake',
                 unsafe_allow_html=True)
     
     st.markdown('<h4>Developments Made</h4>', unsafe_allow_html=True)
