@@ -176,7 +176,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #d2 = st.date_input("End Date")
     df_all = send_df()
     st.write(df_all)
-    st.line_chart(df_all['Dissolved Oxygen'])
+    st.line_chart(df_all['Dissolved Oxygen'], width=25)
     
     # mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
     # sns.set(font_scale = 1)
