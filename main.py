@@ -136,32 +136,32 @@ elif add_selectbox == 'Select AOI Data Parameters':
         
     start1 = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
 
-    end1 = datetime.date(year=2024,month=11,day=1)
+    start2 = datetime.date(year=2024,month=11,day=1)
     
     # end1 = datetime.datetime.now().date()+relativedelta(years=2)
     
-    max_days = end1-start1
+    max_days = start2-start1
         
-    slider1 = col3.slider('Select date', min_value=start1, value=end1 ,max_value=end1, format=format)
+    slider1 = col3.slider('Select date', min_value=start1, value=start2 ,max_value=start2, format=format)
         ## Sanity check
-    st.table(pd.DataFrame([[start1, slider1, end1]],
-                      columns=['start_selected',
-                               'end_selected',
-                               'end'],
+    st.table(pd.DataFrame([[start1, slider1,start2]],
+                      columns=['start1',
+                               'start_selected',
+                               'start2'],
                       index=['date']))
 
-    start2 = datetime.date(year=2024,month=2,day=1)-relativedelta(years=5) #  I need some range in the past
+    end1 = datetime.date(year=2024,month=2,day=1)-relativedelta(years=5) #  I need some range in the past
     
     end2 = datetime.date(year=2024,month=12,day=1)
     
-    max_days = end2-start2
+    max_days = end2-end1
         
-    slider2 = col3.slider('Select date', min_value=start2, value=end2, max_value=end2, format=format)
+    slider2 = col3.slider('Select date', min_value=end1, value=end2, max_value=end2, format=format)
         ## Sanity check
-    st.table(pd.DataFrame([[start2, slider2, end2]],
-                      columns=['start_selected',
+    st.table(pd.DataFrame([[end1, slider2, end2]],
+                      columns=['end1',
                                'end_selected',
-                               'end'],
+                               'end2'],
                       index=['date']))
     #col3, col4 = st.columns(2)
     
