@@ -24,18 +24,18 @@ def get_data(long, lat, start_date, end_date):
   geometry1 = ee.Geometry.Point([long,lat])
 
   geometry = ee.Geometry.Polygon([
-      [72.5986408493042,23.006549566021803],
-    [72.59902708740235,23.004890477468116],
-    [72.60070078582764,23.003863412427236],
-    [72.60040037841797,23.007142092704626],
-    [72.60215990753174,23.006668071566512],
-    [72.60173075408936,23.003784407100333],
-      [72.60366194458008,23.00516699364359],
-    [72.60374777526856,23.00686558057643],
-      [72.6026748916626,23.00805062856477],
-      [72.60082953186036,23.00880115357416],
-      [72.59945624084473,23.00809012998513],
-      [72.5986408493042,23.006549566021803]
+    [72.5986408493042,23.006549566021803],
+   [72.59902708740235,23.004890477468116],
+   [72.60070078582764,23.003863412427236],
+   [72.60040037841797,23.007142092704626],
+   [72.60215990753174,23.006668071566512],
+   [72.60173075408936,23.003784407100333],
+    [72.60366194458008,23.00516699364359],
+   [72.60374777526856,23.00686558057643],
+    [72.6026748916626,23.00805062856477],
+    [72.60082953186036,23.00880115357416],
+    [72.59945624084473,23.00809012998513],
+    [72.5986408493042,23.006549566021803]
   ])
 
   Map.addLayer(geometry1)
@@ -48,24 +48,14 @@ def get_data(long, lat, start_date, end_date):
   mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
   mndwitr = mndwi.gt(0)
   ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
-  # ndsi2 = sentinel.normalizedDifference(['B11','B12']).rename('ndsi2').mask(mndwitr)
-  # Map.addLayer(ndsi2,{'min':0.1,'max':0.4,'palette':['cyan','orange','red']},'salinity')
   ndti = sentinel.normalizedDifference(['B4','B3']).rename('ndti')
-  # ndti2 = sentinel.normalizedDifference(['B4','B3']).rename('ndti2').mask(mndwitr)
-  # Map.addLayer(ndti2,{'min':-1,'max':+1,'palette':['blue','pink','brown']},'turbidity')
 
   ndci = sentinel.normalizedDifference(['B5','B4']).rename('ndci')
-  # ndci2 = sentinel.normalizedDifference(['B5','B4']).rename('ndci2').mask(mndwitr)
-  # Map.addLayer(ndci2,{'min':-1,'max':+1,'palette':['green','pink','brown']},'chlorophyll')
 
 
   ph  = ee.Image(8.339).subtract(ee.Image(0.827).multiply(sentinel.select('B1').divide(sentinel.select('B8')))).rename('ph')
-  # ph2  = ee.Image(8.339).subtract(ee.Image(0.827).multiply(sentinel.select('B1').divide(sentinel.select('B8')))).rename('ph2').mask(mndwitr)
-  # Map.addLayer(ph2,{'min':0,'max':14,'palette':['red','yellow','cyan']},'ph')
 
   dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
-  # dissolvedoxygen2  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen2').mask(mndwitr)
-  # Map.addLayer(dissolvedoxygen2,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
 
   Map.to_streamlit(width = 100, height=100)
   # return "Done"
