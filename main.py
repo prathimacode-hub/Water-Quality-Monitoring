@@ -266,7 +266,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
 
-        
+    test = ''    
     if st.button('Submit'):
         
         # st.write(type(slider1))
@@ -356,8 +356,8 @@ elif add_selectbox == 'Result':
     st.subheader('OUR RESULT')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
     st.image("", width=500)
-    # if st.button('Submit'):
-    #     st.write(predict_quality(df2, test))
+    if st.button('Submit'):
+        st.write(predict_quality(df2, test))
 
         
         
