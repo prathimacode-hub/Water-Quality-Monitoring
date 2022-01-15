@@ -46,7 +46,7 @@ def get_data(start_date, end_date):
   mndwitr = mndwi.gt(0)
   ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
   ndsi2 = sentinel.normalizedDifference(['B11','B12']).rename('ndsi2').mask(mndwitr)
-  Map.addLayer(ndsi1,{'min':0.1,'max':0.4,'palette':['cyan','orange','red']},'salinity')
+  Map.addLayer(ndsi2,{'min':0.1,'max':0.4,'palette':['cyan','orange','red']},'salinity')
   ndti = sentinel.normalizedDifference(['B4','B3']).rename('ndti')
   ndti2 = sentinel.normalizedDifference(['B4','B3']).rename('ndti2').mask(mndwitr)
   Map.addLayer(ndti2,{'min':-1,'max':+1,'palette':['blue','pink','brown']},'turbidity')
@@ -62,7 +62,7 @@ def get_data(start_date, end_date):
 
   dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
   dissolvedoxygen2  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen2').mask(mndwitr)
-  Map.addLayer(dissolvedoxygen,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
+  Map.addLayer(dissolvedoxygen2,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
 
   Map.to_streamlit(width = 100, height=100)
   return "Done"
