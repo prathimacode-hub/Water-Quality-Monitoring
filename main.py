@@ -20,6 +20,9 @@ from PIL import Image
 from streamlit_folium import folium_static
 from dateutil.relativedelta import relativedelta
 from data_collection import *
+import seaborn as sns
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 st.set_page_config(
     page_title="Water Quality Monitoring Dashboard for Kutch Region",
@@ -168,8 +171,19 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #d1 = st.date_input("Start Date")
     
     #d2 = st.date_input("End Date")
-    
     st.write(send_df())
+
+    mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+    sns.set(font_scale = 1)
+
+    plt.figure(figsize=(25,10))
+    ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
+    ax.tick_params(axis='y', colors='black') 
+    ax.tick_params(axis='x', colors='black') 
+    ax.set_xticks(np.arange(-7, df_all['Dissolved Oxygen'].max() + 1, 1))
+    plt.setp(ax.get_xticklabels(), rotation=-10)
+    st.write(plt.show())
+    
     if st.button('Submit'):
 
         # mess = get_data(start_date, slider) 
