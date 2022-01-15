@@ -10,48 +10,48 @@ import numpy as np
 # ee.Initialize()
 def get_data(start_date, end_date):
     
-    Map = geemap.Map()
+  Map = geemap.Map()
 
-#start_date = '2021-01-01'
-#end_date = '2021-06-30'
+  #start_date = '2021-01-01'
+  #end_date = '2021-06-30'
 
-# Kankaria Lake, Ahmedabad
+  # Kankaria Lake, Ahmedabad
 
-geometry1 = ee.Geometry.Point([72.6026,23.0063])
+  geometry1 = ee.Geometry.Point([72.6026,23.0063])
 
-geometry = ee.Geometry.Polygon([
-    [72.5986408493042,23.006549566021803],
-   [72.59902708740235,23.004890477468116],
-   [72.60070078582764,23.003863412427236],
-   [72.60040037841797,23.007142092704626],
-   [72.60215990753174,23.006668071566512],
-   [72.60173075408936,23.003784407100333],
-    [72.60366194458008,23.00516699364359],
-   [72.60374777526856,23.00686558057643],
-    [72.6026748916626,23.00805062856477],
-    [72.60082953186036,23.00880115357416],
-    [72.59945624084473,23.00809012998513],
-    [72.5986408493042,23.006549566021803]
-])
+  geometry = ee.Geometry.Polygon([
+      [72.5986408493042,23.006549566021803],
+    [72.59902708740235,23.004890477468116],
+    [72.60070078582764,23.003863412427236],
+    [72.60040037841797,23.007142092704626],
+    [72.60215990753174,23.006668071566512],
+    [72.60173075408936,23.003784407100333],
+      [72.60366194458008,23.00516699364359],
+    [72.60374777526856,23.00686558057643],
+      [72.6026748916626,23.00805062856477],
+      [72.60082953186036,23.00880115357416],
+      [72.59945624084473,23.00809012998513],
+      [72.5986408493042,23.006549566021803]
+  ])
 
-Map.addLayer(geometry1)
-sentinel = ee.ImageCollection("COPERNICUS/S2_SR").filterBounds(geometry) \
-               .filterDate(start_date,end_date) \
-               .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20)) \
-               .median()
-
-
-mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
-mndwitr = mndwi.gt(0)
-ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
-ndti = sentinel.normalizedDifference(['B4','B3']).rename('ndti')
-
-ndci = sentinel.normalizedDifference(['B5','B4']).rename('ndci')
+  Map.addLayer(geometry1)
+  sentinel = ee.ImageCollection("COPERNICUS/S2_SR").filterBounds(geometry) \
+                .filterDate(start_date,end_date) \
+                .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20)) \
+                .median()
 
 
-ph  = ee.Image(8.339).subtract(ee.Image(0.827).multiply(sentinel.select('B1').divide(sentinel.select('B8')))).rename('ph')
+  mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
+  mndwitr = mndwi.gt(0)
+  ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
+  ndti = sentinel.normalizedDifference(['B4','B3']).rename('ndti')
 
-dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
+  ndci = sentinel.normalizedDifference(['B5','B4']).rename('ndci')
+
+
+  ph  = ee.Image(8.339).subtract(ee.Image(0.827).multiply(sentinel.select('B1').divide(sentinel.select('B8')))).rename('ph')
+
+  dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
 
 
 col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
