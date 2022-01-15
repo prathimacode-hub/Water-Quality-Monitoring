@@ -135,7 +135,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
             aoi_data = pd.read_csv('Data_Shinai_Lake_2019')
             aoi_data = pd.read_csv('Data_2020_Shinai_Lake')
             aoi_data = pd.read_csv('Data_2021_Shinai_Lake')
-       elif aoi_type == 'Harmirsar Lake':
+        elif aoi_type == 'Harmirsar Lake':
             aoi_data = pd.read_csv('Data_2019_Harmisar_Lake')
             aoi_data = pd.read_csv('Data_2020_Harmisar_Lake')
             aoi_data = pd.read_csv('Data_2021_Harmisar_Lake')
