@@ -183,6 +183,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     ax.tick_params(axis='x', colors='black') 
     ax.set_xticks(np.arange(-7, df_all['Dissolved Oxygen'].max() + 1, 1))
     plt.setp(ax.get_xticklabels(), rotation=-10)
+    plt.show() 
     plt.savefig('do.png', bbox_inches='tight')
     # st.pyplot(fig, clear_figure = True) 
     st.image('do.png')
