@@ -41,7 +41,7 @@ st.sidebar.markdown('<h1 style="margin-left:8%; color:	#FF9933 ">Kutch Water Qua
 
 add_selectbox = st.sidebar.radio(
     "",
-    ("Home", "About", "Features", "Select AOI Data Parameters", "Our Result", "Visualizations", "Conclusion", "Team")
+    ("Home", "About", "Features", "Select AOI Data Parameters", "Visualizations", "Conclusion", "Team")
 )
 
 if add_selectbox == 'Home':
