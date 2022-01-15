@@ -124,9 +124,17 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     col3, col4 = st.columns(2)
     
-    d1 = st.date_input("Start Date")
+    d1 = st.sidebar.date_input('start date', datetime.date(2022,1,1))
     
-    d2 = st.date_input("End Date")
+    st.write(d1)
+    
+    d2 = st.sidebar.date_input('end date', datetime.date(2022,1,15))
+    
+    st.write(d2)
+    
+    #d1 = st.date_input("Start Date")
+    
+    #d2 = st.date_input("End Date")
     
     
     if st.button('Submit'):
