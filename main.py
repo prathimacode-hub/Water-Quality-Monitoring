@@ -21,6 +21,7 @@ from PIL import Image
 from streamlit_folium import folium_static
 from dateutil.relativedelta import relativedelta
 from data_collection import *
+from predict import *
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -143,7 +144,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     max_days = start2-start1
         
-    slider1 = col3.slider('Select date', min_value=start1, value=start2 ,max_value=start2, format=format)
+    slider1 = col3.slider('Select Start Date', min_value=start1, value=start2 ,max_value=start2, format=format)
         ## Sanity check
     st.table(pd.DataFrame([[start1, slider1,start2]],
                       columns=['start1',
@@ -157,28 +158,16 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     max_days = end2-end1
         
-    slider2 = col3.slider('Select date', min_value=end1, value=end2, max_value=end2, format=format)
+    slider2 = col3.slider('Select End Date', min_value=end1, value=end2, max_value=end2, format=format)
         ## Sanity check
     st.table(pd.DataFrame([[end1, slider2, end2]],
                       columns=['end1',
                                'end_selected',
                                'end2'],
                       index=['date']))
-    #col3, col4 = st.columns(2)
     
-    #d1 = st.sidebar.date_input('start date', datetime.date(2022,1,1))
-    
-    #st.write(d1)
-    
-    #d2 = st.sidebar.date_input('end date', datetime.date(2022,1,15))
-    
-    #st.write(d2)
-    
-    #d1 = st.date_input("Start Date")
-    
-    #d2 = st.date_input("End Date")
-    df_all = send_df()
-    st.write(df_all)
+    # df_all = send_df()
+    # st.write(df_all)
     
     def plot_do(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
@@ -270,38 +259,42 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
 
 
-    if prm_type == 'Dissolved Oxygen':
-        plot_do(df_all)
-    elif prm_type == 'Salinity':
-        plot_salinity(df_all)
-    elif prm_type == 'Land Surface Temperature':
-        plot_temperature(df_all)
-    elif prm_type == 'Turbidity':
-        plot_turbidity(df_all)
-    elif prm_type == 'pH':
-        plot_pH(df_all)
-    elif prm_type == 'Chlorophyll':
-        plot_chlorophyll(df_all)
-    elif prm_type == 'Suspended Matter':
-        plot_sm(df_all)
-    elif prm_type == 'Dissolved Organic Matter':
-        plot_dom(df_all)
-    else:
-        plot_dom(df_all)
-        plot_pH(df_all)
-        plot_sm(df_all)
-        plot_chlorophyll(df_all)
-        plot_turbidity(df_all)
-        plot_temperature(df_all)
-        plot_salinity(df_all)
-        plot_do(df_all)
+    
 
         
     if st.button('Submit'):
         
 
-        mess = get_data(slider1, slider2) 
-        st.write(mess)
+        df2 = get_data(slider1, slider2) 
+        # st.write(mess)
+        df_all, test = send_df(df2)
+        st.write(df_all)
+
+        if prm_type == 'Dissolved Oxygen':
+            plot_do(df_all)
+        elif prm_type == 'Salinity':
+            plot_salinity(df_all)
+        elif prm_type == 'Land Surface Temperature':
+            plot_temperature(df_all)
+        elif prm_type == 'Turbidity':
+            plot_turbidity(df_all)
+        elif prm_type == 'pH':
+            plot_pH(df_all)
+        elif prm_type == 'Chlorophyll':
+            plot_chlorophyll(df_all)
+        elif prm_type == 'Suspended Matter':
+            plot_sm(df_all)
+        elif prm_type == 'Dissolved Organic Matter':
+            plot_dom(df_all)
+        else:
+            plot_dom(df_all)
+            plot_pH(df_all)
+            plot_sm(df_all)
+            plot_chlorophyll(df_all)
+            plot_turbidity(df_all)
+            plot_temperature(df_all)
+            plot_salinity(df_all)
+            plot_do(df_all)
 
 
         if aoi_type == 'Shinai Lake':
@@ -355,6 +348,9 @@ elif add_selectbox == 'Result':
     st.subheader('OUR RESULT')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
     st.image("", width=500)
+    # if st.button('Submit'):
+    #     st.write(predict_quality(df2, test))
+
         
         
 elif add_selectbox == 'Visualizations':

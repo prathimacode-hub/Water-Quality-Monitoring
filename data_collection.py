@@ -45,8 +45,8 @@ def get_data(start_date, end_date):
   mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
   mndwitr = mndwi.gt(0)
   ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
-  ndsi2 = sentinel.normalizedDifference(['B11','B12']).rename('ndsi2').mask(mndwitr)
-  Map.addLayer(ndsi2,{'min':0.1,'max':0.4,'palette':['cyan','orange','red']},'salinity')
+  # ndsi2 = sentinel.normalizedDifference(['B11','B12']).rename('ndsi2').mask(mndwitr)
+  # Map.addLayer(ndsi2,{'min':0.1,'max':0.4,'palette':['cyan','orange','red']},'salinity')
   ndti = sentinel.normalizedDifference(['B4','B3']).rename('ndti')
   # ndti2 = sentinel.normalizedDifference(['B4','B3']).rename('ndti2').mask(mndwitr)
   # Map.addLayer(ndti2,{'min':-1,'max':+1,'palette':['blue','pink','brown']},'turbidity')
@@ -65,47 +65,69 @@ def get_data(start_date, end_date):
   # Map.addLayer(dissolvedoxygen2,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
 
   Map.to_streamlit(width = 100, height=100)
-  return "Done"
+  # return "Done"
 
-# col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
-# .filterDate(start_date,end_date) \
-# .filterBounds(geometry).median()
+  col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
+  .filterDate(start_date,end_date) \
+  .filterBounds(geometry).median()
 
-# temp  = col.select('ST_B.*').multiply(0.00341802).add(149.0).subtract(273.15).rename('temp')
+  temp  = col.select('ST_B.*').multiply(0.00341802).add(149.0).subtract(273.15).rename('temp')
 
-# ## Test Data
-
-
-# starting = '2021-01-01'
-# ending = '2021-08-31'
-
-# data = ee.ImageCollection('COPERNICUS/S3/OLCI').filterDate(starting, ending).filterBounds(geometry)
-
-# rgb = data.select(['Oa08_radiance', 'Oa06_radiance', 'Oa04_radiance'])\
-#               .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(geometry)
-# dm_2021_Jan_August_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
-# suspended_matter_2021_Jan_August_test= rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).rename('suspended_matter')
+  ## Test Data
 
 
-# latlon = ee.Image.pixelLonLat().addBands(dm_2021_Jan_August_test)
-# # apply reducer to list
-# latlon = latlon.reduceRegion(
-#   reducer=ee.Reducer.toList(),
-#   geometry=geometry,
-#   scale=100,
-#   tileScale = 16);
-# # get data into three different arrays
-# data_dom_2021_Jan_August_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
+  starting = start_date
+  ending = end_date
 
-# latlon = ee.Image.pixelLonLat().addBands(suspended_matter_2021_Jan_August_test)
-# # apply reducer to list
-# latlon = latlon.reduceRegion(
-#   reducer=ee.Reducer.toList(),
-#   geometry=geometry,
-#   scale=100,
-#   tileScale = 16);
-# # get data into three different arrays
-# data_sm_2021_Jan_August_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
+  data = ee.ImageCollection('COPERNICUS/S3/OLCI').filterDate(starting, ending).filterBounds(geometry)
+
+  rgb = data.select(['Oa08_radiance', 'Oa06_radiance', 'Oa04_radiance'])\
+                .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(geometry)
+  dm_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
+  suspended_matter_test= rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).rename('suspended_matter')
+
+
+  latlon = ee.Image.pixelLonLat().addBands(dm_test)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100,
+    tileScale = 16);
+  # get data into three different arrays
+  data_dom_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
+
+  latlon = ee.Image.pixelLonLat().addBands(suspended_matter_test)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100,
+    tileScale = 16);
+  # get data into three different arrays
+  data_sm_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
+  df = pd.concat([pd.DataFrame(data_do, columns = ['Dissolved Oxygen']),\
+             pd.DataFrame(data_ndsi, columns = ['Salinity']),\
+             pd.DataFrame(data_lst, columns = ['Temperature']),\
+             pd.DataFrame(data_ph, columns = ['pH']),\
+             pd.DataFrame(data_ndti, columns = ['Turbidity']),\
+             pd.DataFrame(data_dom_test, columns = ['Dissolved Organic Matter']),\
+             pd.DataFrame(data_sm_test, columns = ['Suspended Matter']),\
+             pd.DataFrame(data_ndci, columns = ['Chlorophyll'])], axis=1, sort=False)
+  
+  return df
+
+def send_df(df2):
+  df2 = df2.dropna()
+  df2['Dissolved Organic Matter'] = df2['Dissolved Organic Matter']*1000
+  df2['Suspended Matter'] = df2['Suspended Matter']*1000
+  test = pd.DataFrame(MinMaxScaler().fit_transform(df2.drop(['Salinity', 'Class'], axis=1)), columns=df2.drop(['Salinity','Class'], axis=1).columns)
+  # df = pd.read_csv('Data_2021_Tappar_Lake')
+  return df2, test
+  # return df.head()
+
+
+
 
 
 # ## Training Data
@@ -239,7 +261,7 @@ def get_data(start_date, end_date):
 # # apply reducer to list
 # latlon = latlon.reduceRegion(
 #   reducer=ee.Reducer.toList(),
-#   geometry=geometry,
+#   geometry=geometry,2021_Jan_August_
 #   scale=100);
 # # get data into three different arrays
 # data_ndci = np.array((ee.Array(latlon.get("ndci")).getInfo()))
@@ -284,8 +306,4 @@ def get_data(start_date, end_date):
 
 # df.to_csv('Data_2021_Tappar_Lake',index=False)
 
-def send_df():
-  # test = pd.DataFrame(MinMaxScaler().fit_transform(df2.drop(['Salinity', 'Class'], axis=1)), columns=df2.drop(['Salinity','Class'], axis=1).columns)
-  df = pd.read_csv('Data_2021_Tappar_Lake')
-  return df.head()
 
