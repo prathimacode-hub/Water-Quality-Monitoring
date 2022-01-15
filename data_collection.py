@@ -88,7 +88,7 @@ def get_data(long, lat, start_date, end_date):
     scale=100,
     tileScale = 16);
   # get data into three different arrays
-  data_dom_2021_Jan_August_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
+  # data_dom_2021_Jan_August_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
 
   latlon = ee.Image.pixelLonLat().addBands(suspended_matter_2021_Jan_August_test)
   # apply reducer to list
