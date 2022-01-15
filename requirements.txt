@@ -1,4 +1,4 @@
-pandas==1.2.2
+pandas>=1.2.2
 streamlit_folium==0.4.0
 networkx==2.6.2
 geopy==2.2.0
