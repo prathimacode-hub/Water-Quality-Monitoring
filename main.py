@@ -177,13 +177,16 @@ elif add_selectbox == 'Select AOI Data Parameters':
     mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
     sns.set(font_scale = 1)
 
-    fig = plt.figure(figsize=(55,25))
+    fig = plt.figure(figsize=(25,10))
     ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
     ax.tick_params(axis='y', colors='black') 
     ax.tick_params(axis='x', colors='black') 
     ax.set_xticks(np.arange(-7, df_all['Dissolved Oxygen'].max() + 1, 1))
     plt.setp(ax.get_xticklabels(), rotation=-10)
-    st.pyplot(fig, clear_figure = True) 
+    plt.savefig('do.png', bbox_inches='tight')
+    # st.pyplot(fig, clear_figure = True) 
+    st.write('do.png')
+    
     # plt.show()    
     if st.button('Submit'):
 
