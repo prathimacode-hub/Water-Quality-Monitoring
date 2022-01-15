@@ -25,6 +25,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import time
 from matplotlib.backends.backend_agg import RendererAgg
+from bokeh.plotting import figure
 
 st.set_page_config(
     page_title="Water Quality Monitoring Dashboard for Kutch Region",
@@ -175,18 +176,25 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #d2 = st.date_input("End Date")
     df_all = send_df()
     st.write(df_all)
+    p = figure(
+     title='Parameter',
+     x_axis_label='Dissolved Oxygen',
+     y_axis_label='y')
+
+    p.line(df_all['Dissolved Oxygen'], y, legend_label='Trend', line_width=2)
+    st.bokeh_chart(p, use_container_width=True)
     
-    mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
-    sns.set(font_scale = 1)
-    fig = plt.figure(figsize=(25,10))
-    ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
-    ax.tick_params(axis='y', colors='black') 
-    ax.tick_params(axis='x', colors='black') 
-    ax.set_xticks(np.arange(-7, df_all['Dissolved Oxygen'].max() + 1, 1))
-    plt.setp(ax.get_xticklabels(), rotation=-10)
-    plt.show() 
-    # plt.savefig('do.png', bbox_inches='tight')
-    st.pyplot(fig, clear_figure = True) 
+    # mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+    # sns.set(font_scale = 1)
+    # fig = plt.figure(figsize=(25,10))
+    # ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
+    # ax.tick_params(axis='y', colors='black') 
+    # ax.tick_params(axis='x', colors='black') 
+    # ax.set_xticks(np.arange(-7, df_all['Dissolved Oxygen'].max() + 1, 1))
+    # plt.setp(ax.get_xticklabels(), rotation=-10)
+    # plt.show() 
+    # # plt.savefig('do.png', bbox_inches='tight')
+    # st.pyplot(fig, clear_figure = True) 
     
     
     # plt.show()    
