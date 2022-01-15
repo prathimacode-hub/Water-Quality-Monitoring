@@ -86,8 +86,9 @@ def get_data(long, lat, start_date, end_date):
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16);
+    tileScale = 16)
   # get data into three different arrays
+  return latlon, starting
   data_dom_2021_Jan_August_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
 
   latlon = ee.Image.pixelLonLat().addBands(suspended_matter_2021_Jan_August_test)
@@ -96,7 +97,7 @@ def get_data(long, lat, start_date, end_date):
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16);
+    tileScale = 16)
   # get data into three different arrays
   data_sm_2021_Jan_August_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
 
@@ -106,7 +107,7 @@ def get_data(long, lat, start_date, end_date):
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
-    scale=100);
+    scale=100)
 
   data_lst = np.array((ee.Array(latlon.get("temp")).getInfo()))
 
@@ -116,7 +117,7 @@ def get_data(long, lat, start_date, end_date):
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
-    scale=100);
+    scale=100)
   # get data into three different arrays
   data_ndti = np.array((ee.Array(latlon.get("ndti")).getInfo()))
 
@@ -125,7 +126,7 @@ def get_data(long, lat, start_date, end_date):
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
-    scale=100);
+    scale=100)
   # get data into three different arrays
   data_ndsi = np.array((ee.Array(latlon.get("ndsi")).getInfo()))
 
@@ -134,7 +135,7 @@ def get_data(long, lat, start_date, end_date):
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
-    scale=100);
+    scale=100)
   # get data into three different arrays
   data_ndci = np.array((ee.Array(latlon.get("ndci")).getInfo()))
 
@@ -144,7 +145,7 @@ def get_data(long, lat, start_date, end_date):
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16);
+    tileScale = 16)
   # get data into three different arrays
   data_do = np.array((ee.Array(latlon.get("dissolvedoxygen")).getInfo()))
 
@@ -153,7 +154,7 @@ def get_data(long, lat, start_date, end_date):
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
-    scale=100);
+    scale=100)
   # get data into three different arrays
   data_ph = np.array((ee.Array(latlon.get("ph")).getInfo()))
   df = pd.concat([pd.DataFrame(data_do, columns = ['Dissolved Oxygen']),\
@@ -161,11 +162,11 @@ def get_data(long, lat, start_date, end_date):
              pd.DataFrame(data_lst, columns = ['Temperature']),\
              pd.DataFrame(data_ph, columns = ['pH']),\
              pd.DataFrame(data_ndti, columns = ['Turbidity']),\
-             pd.DataFrame(data_dom_test, columns = ['Dissolved Organic Matter']),\
-             pd.DataFrame(data_sm_test, columns = ['Suspended Matter']),\
+             pd.DataFrame(data_dom_2021_Jan_August_test, columns = ['Dissolved Organic Matter']),\
+             pd.DataFrame(data_sm_2021_Jan_August_test, columns = ['Suspended Matter']),\
              pd.DataFrame(data_ndci, columns = ['Chlorophyll'])], axis=1, sort=False)
   
-  return df
+  # return df
 
 def send_df(df2):
   df2 = df2.dropna()
