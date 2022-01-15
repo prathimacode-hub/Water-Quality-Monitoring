@@ -294,40 +294,41 @@ elif add_selectbox == 'Select AOI Data Parameters':
             st.text("")
             st.text("")
             st.write(predict_quality(df2, test))
+        
+
+        
+            st.text("")
+            st.text("")
+            st.text("")
+            
+
+            if prm_type == 'Dissolved Oxygen':
+                plot_do(df_all)
+            elif prm_type == 'Salinity':
+                plot_salinity(df_all)
+            elif prm_type == 'Land Surface Temperature':
+                plot_temperature(df_all)
+            elif prm_type == 'Turbidity':
+                plot_turbidity(df_all)
+            elif prm_type == 'pH':
+                plot_pH(df_all)
+            elif prm_type == 'Chlorophyll':
+                plot_chlorophyll(df_all)
+            elif prm_type == 'Suspended Matter':
+                plot_sm(df_all)
+            elif prm_type == 'Dissolved Organic Matter':
+                plot_dom(df_all)
+            else:
+                plot_dom(df_all)
+                plot_pH(df_all)
+                plot_sm(df_all)
+                plot_chlorophyll(df_all)
+                plot_turbidity(df_all)
+                plot_temperature(df_all)
+                plot_salinity(df_all)
+                plot_do(df_all)
         except:
             st.write("Enter proper date range") 
-
-        
-        st.text("")
-        st.text("")
-        st.text("")
-        
-
-        if prm_type == 'Dissolved Oxygen':
-            plot_do(df_all)
-        elif prm_type == 'Salinity':
-            plot_salinity(df_all)
-        elif prm_type == 'Land Surface Temperature':
-            plot_temperature(df_all)
-        elif prm_type == 'Turbidity':
-            plot_turbidity(df_all)
-        elif prm_type == 'pH':
-            plot_pH(df_all)
-        elif prm_type == 'Chlorophyll':
-            plot_chlorophyll(df_all)
-        elif prm_type == 'Suspended Matter':
-            plot_sm(df_all)
-        elif prm_type == 'Dissolved Organic Matter':
-            plot_dom(df_all)
-        else:
-            plot_dom(df_all)
-            plot_pH(df_all)
-            plot_sm(df_all)
-            plot_chlorophyll(df_all)
-            plot_turbidity(df_all)
-            plot_temperature(df_all)
-            plot_salinity(df_all)
-            plot_do(df_all)
 
 
         if aoi_type == 'Shinai Lake':
