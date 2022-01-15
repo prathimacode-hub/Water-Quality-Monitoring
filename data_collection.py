@@ -96,7 +96,7 @@ def get_data(long, lat, start_date, end_date):
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16);
+    tileScale = 16)
   # get data into three different arrays
   data_dom_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
 
@@ -106,7 +106,7 @@ def get_data(long, lat, start_date, end_date):
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16);
+    tileScale = 16)
   # get data into three different arrays
   data_sm_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
   df = pd.concat([pd.DataFrame(data_do, columns = ['Dissolved Oxygen']),\
