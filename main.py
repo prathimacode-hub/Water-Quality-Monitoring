@@ -131,18 +131,18 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     if st.button('Submit'):
 
-#        if aoi_type == 'Shinai Lake':
-#            aoi_data = pd.read_csv('Data_Shinai_Lake_2019.csv')
-#            aoi_data = pd.read_csv('Data_2020_Shinai_Lake.csv')
-#            aoi_data = pd.read_csv('Data_2021_Shinai_Lake.csv')
-#        elif aoi_type == 'Harmirsar Lake':
-#            aoi_data = pd.read_csv('Data_2019_Harmisar_Lake.csv')
-#            aoi_data = pd.read_csv('Data_2020_Harmisar_Lake.csv')
-#            aoi_data = pd.read_csv('Data_2021_Harmisar_Lake.csv')
-#        elif aoi_type == 'Tappar Lake':
-#            aoi_data = pd.read_csv('Data_2019_Tappar_Lake.csv')
-#            aoi_data = pd.read_csv('Data_2020_Tappar_Lake.csv')
-#            aoi_data = pd.read_csv('Data_2021_Tappar_Lake.csv')
+        if aoi_type == 'Shinai Lake':
+            aoi_data = pd.read_csv('Data_Shinai_Lake_2019')
+            aoi_data = pd.read_csv('Data_2020_Shinai_Lake')
+            aoi_data = pd.read_csv('Data_2021_Shinai_Lake')
+       elif aoi_type == 'Harmirsar Lake':
+            aoi_data = pd.read_csv('Data_2019_Harmisar_Lake')
+            aoi_data = pd.read_csv('Data_2020_Harmisar_Lake')
+            aoi_data = pd.read_csv('Data_2021_Harmisar_Lake')
+        elif aoi_type == 'Tappar Lake':
+            aoi_data = pd.read_csv('Data_2019_Tappar_Lake')
+            aoi_data = pd.read_csv('Data_2020_Tappar_Lake')
+            aoi_data = pd.read_csv('Data_2021_Tappar_Lake')
 
         prm = prm_type.split(" ")
 
