@@ -170,7 +170,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     end1 = datetime.date(year=2024,month=2,day=28)-relativedelta(years=5) #  I need some range in the past
     
-    end2 = datetime.date(year=2024,month=12,day=1)
+    end2 = datetime.date(year=2024,month=12,day=31)
     
     max_days = end2-end1
         
