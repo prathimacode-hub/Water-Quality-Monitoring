@@ -45,9 +45,9 @@ def get_data(long, lat, start_date, end_date):
                 .median()
 
   visualization = {
-  min: 0,
-  max: 3000,
-  bands: ['B4', 'B3', 'B2'],
+  'min': 0,
+  'max': 3000,
+  'bands': ['B4', 'B3', 'B2'],
   }
   Map.addLayer(sentinel, visualization, 'sent2rgb')
   mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
