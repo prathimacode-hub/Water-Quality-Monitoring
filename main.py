@@ -117,9 +117,7 @@ elif add_selectbox == 'Features':
     
 elif add_selectbox == 'Select AOI Data Parameters':
 
-    long = st.text_input('Longitude', 'long')
-
-    lat = st.text_input('Latitude', 'lat')
+   
     
     st.subheader('SELECT FOR AOI DATA PARAMETERS')    
     
@@ -135,6 +133,10 @@ elif add_selectbox == 'Select AOI Data Parameters':
         ("All","pH","Salinity","Turbidity","Land Surface Temperature","Chlorophyll","Suspended matter",
      "Dissolved Organic Matter","Dissolved Oxygen")
     )
+
+    long = st.text_input('Longitude', 'long')
+
+    lat = st.text_input('Latitude', 'lat')
     
     col3,_ = st.columns((1,2)) # To make it narrower
     
