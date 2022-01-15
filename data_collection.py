@@ -64,7 +64,7 @@ def get_data(long, lat, start_date, end_date):
 
   dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
 
-  Map.setCenter(long, lat, 5)
+  # Map.setCenter(long, lat, 5)
   Map.to_streamlit(width = 100, height=600)
   # return "Done"
 
