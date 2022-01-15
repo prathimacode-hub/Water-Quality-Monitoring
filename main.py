@@ -128,18 +128,16 @@ elif add_selectbox == 'Select AOI Data Parameters':
     format = 'MMM DD, YYYY'  # format output
         
     start_date = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
-    st.write(start_date) 
     
     end_date = datetime.datetime.now().date()+relativedelta(years=2)
-    st.write(end_date)
     
     max_days = end_date-start_date
         
     slider = col3.slider('Select date', min_value=start_date, value=end_date ,max_value=end_date, format=format)
         ## Sanity check
     st.table(pd.DataFrame([[start_date, slider, end_date]],
-                      columns=['start',
-                               'selected',
+                      columns=['start_selected',
+                               'end_selected',
                                'end'],
                       index=['date']))
     #col3, col4 = st.columns(2)
