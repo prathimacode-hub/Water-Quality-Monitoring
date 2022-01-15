@@ -71,7 +71,7 @@ def get_data(long, lat, start_date, end_date):
   Map.addLayer(dissolvedoxygen2,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
 
   # Map.setCenter(long, lat, 5)
-  Map.to_streamlit(width = 100, height=900)
+  # Map.to_streamlit(width = 100, height=900)
   # return "Done"
 
   col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
@@ -91,7 +91,13 @@ def get_data(long, lat, start_date, end_date):
   rgb = data.select(['Oa08_radiance', 'Oa06_radiance', 'Oa04_radiance'])\
                 .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(geometry)
   dm_2021_Jan_August_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
+  dom2 = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).mask(mndwitr)
+  Map.addLayer(dom2,{'min':0,'max':0.8,'palette':['green','red','yellow']},'Dissolved organic matter')
   suspended_matter_2021_Jan_August_test= rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).rename('suspended_matter')
+  suspended_matter2 = rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).mask(mndwitr)
+  Map.addLayer(suspended_matter2,{'min':0,'max':0.8,'palette':['green','red','yellow']},'suspended_matter')
+
+  Map.to_streamlit(width = 100, height=900)
 
   
 
