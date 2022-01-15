@@ -8,11 +8,12 @@ import numpy as np
 
 # ee.Authenticate()
 # ee.Initialize()
+def get_data(start_date, end_date):
+    
+    Map = geemap.Map()
 
-start_date = '2021-01-01'
-end_date = '2021-06-30'
-
-Map = geemap.Map()
+#start_date = '2021-01-01'
+#end_date = '2021-06-30'
 
 # Kankaria Lake, Ahmedabad
 
