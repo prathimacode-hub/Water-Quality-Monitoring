@@ -176,13 +176,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #d2 = st.date_input("End Date")
     df_all = send_df()
     st.write(df_all)
-    p = figure(
-     title='Parameter',
-     x_axis_label='Dissolved Oxygen',
-     y_axis_label='y')
-
-    p.line(df_all['Dissolved Oxygen'], y, legend_label='Trend', line_width=2)
-    st.bokeh_chart(p, use_container_width=True)
+    st.line_chart(df_all['Dissolved Oxygen'])
     
     # mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
     # sns.set(font_scale = 1)
