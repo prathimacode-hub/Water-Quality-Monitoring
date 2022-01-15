@@ -171,7 +171,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #d1 = st.date_input("Start Date")
     
     #d2 = st.date_input("End Date")
-    st.write(send_df())
+    df_all = send_df()
+    st.write(df_all)
 
     mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
     sns.set(font_scale = 1)
