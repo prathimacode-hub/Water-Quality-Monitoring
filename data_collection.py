@@ -12,8 +12,8 @@ from sklearn.preprocessing import MinMaxScaler
 def get_data(long, lat, start_date, end_date):
     
   Map = geemap.Map()
-  long = float(long)
-  lat = float(lat)
+  # long = float(long)
+  # lat = float(lat)
 
   # start_date = '2021-01-01'
   # end_date = '2021-06-30'
