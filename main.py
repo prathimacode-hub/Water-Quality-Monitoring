@@ -329,37 +329,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
             aoi_data = pd.read_csv('Data_2020_Tappar_Lake')
             aoi_data = pd.read_csv('Data_2021_Tappar_Lake')
 
-        prm = prm_type.split(" ")
+       
 
-        # st.write(prm)
         
-        # details = aoi_data[aoi_data['prm']==prm[0]]
-
-        # coordinates = {
-        #     'Kutch Region': [23.7337,69.8597]
-        # }
-
-        # m = folium.Map(location=coordinates[prm_type], zoom_start=10)
-        # folium.TileLayer('Stamen Terrain').add_to(m)
-        # folium.TileLayer('Stamen Toner').add_to(m)
-        # folium.TileLayer('Stamen Water Color').add_to(m)
-        # folium.TileLayer('cartodbpositron').add_to(m)
-        # folium.TileLayer('cartodbdark_matter').add_to(m)
-        # folium.LayerControl().add_to(m)
-        # # m
-        
-        # for index, row in details.iterrows():
-        #     if row['geometry'].startswith("POINT"):
-        #         geometry = shapely.wkt.loads(row['geometry'])
-        #     else:
-        #         p = shapely.wkt.loads(row['geometry'])
-        #         geometry = p.centroid
-
-        #     folium.Marker(
-        #         [geometry.y, geometry.x], popup=row['display_name'],
-        #     ).add_to(m)
-
-        # folium_static(m, width=900)
 
 
 elif add_selectbox == 'Result':
