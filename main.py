@@ -158,6 +158,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     if st.button('Submit'):
 
+        get_data(start_date, end_date)
+
         if aoi_type == 'Shinai Lake':
             aoi_data = pd.read_csv('Data_Shinai_Lake_2019')
             aoi_data = pd.read_csv('Data_2020_Shinai_Lake')
