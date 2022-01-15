@@ -266,7 +266,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
 
-    test = ''    
+    test = '' 
+    df2 = ''   
     if st.button('Submit'):
         
         # st.write(type(slider1))
