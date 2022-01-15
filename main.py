@@ -121,10 +121,14 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     col1, col2 = st.columns(2)
 
-    aoi_type = col1.selectbox(
-        "Select Area of Interest (AOI)",
-        ("Shinai Lake","Harmirsar Lake", "Tappar Reservoir Lake")
-    )
+    # aoi_type = col1.selectbox(
+    #     "Select Area of Interest (AOI)",
+    #     ("Shinai Lake","Harmirsar Lake", "Tappar Reservoir Lake")
+    # )
+
+    area = st.text_input('Write Area Of Interest', 'Water Body')
+
+    
     
     prm_type = col2.selectbox(
         "Data Visualization Parameters",
