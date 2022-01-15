@@ -109,6 +109,63 @@ def get_data(long, lat, start_date, end_date):
     tileScale = 16)
   # get data into three different arrays
   data_sm_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
+
+  latlon = ee.Image.pixelLonLat().addBands(temp)
+
+
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100);
+
+  data_lst = np.array((ee.Array(latlon.get("temp")).getInfo()))
+
+
+  latlon = ee.Image.pixelLonLat().addBands(ndti)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100);
+  # get data into three different arrays
+  data_ndti = np.array((ee.Array(latlon.get("ndti")).getInfo()))
+
+  latlon = ee.Image.pixelLonLat().addBands(ndsi)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100);
+  # get data into three different arrays
+  data_ndsi = np.array((ee.Array(latlon.get("ndsi")).getInfo()))
+
+  latlon = ee.Image.pixelLonLat().addBands(ndci)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100);
+  # get data into three different arrays
+  data_ndci = np.array((ee.Array(latlon.get("ndci")).getInfo()))
+
+  latlon = ee.Image.pixelLonLat().addBands(dissolvedoxygen)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100,
+    tileScale = 16);
+  # get data into three different arrays
+  data_do = np.array((ee.Array(latlon.get("dissolvedoxygen")).getInfo()))
+
+  latlon = ee.Image.pixelLonLat().addBands(ph)
+  # apply reducer to list
+  latlon = latlon.reduceRegion(
+    reducer=ee.Reducer.toList(),
+    geometry=geometry,
+    scale=100);
+  # get data into three different arrays
+  data_ph = np.array((ee.Array(latlon.get("ph")).getInfo()))
   df = pd.concat([pd.DataFrame(data_do, columns = ['Dissolved Oxygen']),\
              pd.DataFrame(data_ndsi, columns = ['Salinity']),\
              pd.DataFrame(data_lst, columns = ['Temperature']),\
@@ -264,7 +321,7 @@ def send_df(df2):
 # # apply reducer to list
 # latlon = latlon.reduceRegion(
 #   reducer=ee.Reducer.toList(),
-#   geometry=geometry,2021_Jan_August_
+#   geometry=geometry,
 #   scale=100);
 # # get data into three different arrays
 # data_ndci = np.array((ee.Array(latlon.get("ndci")).getInfo()))
