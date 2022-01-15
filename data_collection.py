@@ -98,7 +98,7 @@ def get_data(long, lat, start_date, end_date):
     scale=100,
     tileScale = 16);
   # get data into three different arrays
-  data_sm_2021_Jan_August_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
+  # data_sm_2021_Jan_August_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
 
   latlon = ee.Image.pixelLonLat().addBands(temp)
 
