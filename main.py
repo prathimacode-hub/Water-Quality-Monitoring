@@ -279,6 +279,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
         df_all, test = send_df(df2)
         # st.write(df_all)
         st.text("")
+        st.text("")
+        st.text("")
         st.write(predict_quality(df2, test))
 
         if prm_type == 'Dissolved Oxygen':
