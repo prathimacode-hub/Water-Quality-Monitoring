@@ -266,7 +266,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
 
-    test = '' 
+    global test
     df2 = ''   
     if st.button('Submit'):
         
@@ -357,8 +357,8 @@ elif add_selectbox == 'Result':
     st.subheader('OUR RESULT')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
     st.image("", width=500)
-    if test:
-        st.write(predict_quality(df2, test))
+    # if test:
+    #     st.write(predict_quality(df2, test))
 
         
         
