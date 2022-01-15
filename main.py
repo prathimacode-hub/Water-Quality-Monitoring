@@ -179,22 +179,20 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #d2 = st.date_input("End Date")
     df_all = send_df()
     st.write(df_all)
-    # st.line_chart(df_all['Dissolved Oxygen'], width=25)
     
-    mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
-    sns.set(font_scale = 2)
-    fig = plt.figure(figsize=(25,10))
-    ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
-    ax.tick_params(axis='y', colors='black') 
-    ax.tick_params(axis='x', colors='black') 
-    ax.set_xticks(np.arange(math.floor(df_all['Dissolved Oxygen'].min()), df_all['Dissolved Oxygen'].max() + 1, 0.5))
-    plt.setp(ax.get_xticklabels(), rotation=-10)
-    # plt.show() 
-    # plt.savefig('do.png', bbox_inches='tight')
-    # st.write(ax)
-    st.pyplot(fig, clear_figure = True) 
+    def plot_do(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        fig = plt.figure(figsize=(25,10))
+        ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Dissolved Oxygen'].min()), df_all['Dissolved Oxygen'].max() + 1, 0.5))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True) 
     
-    
+    if prm_type == 'Dissolved Oxygen':
+        plot_do(df_all)
     # plt.show()    
     if st.button('Submit'):
         
