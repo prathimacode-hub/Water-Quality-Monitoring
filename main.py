@@ -283,14 +283,15 @@ elif add_selectbox == 'Select AOI Data Parameters':
         st.text("")
         try:
             df2 = get_data(long, lat, str(slider1), str(slider2))
+        
+            st.text("")
+            st.text("")
+
+            st.write(df2)
+            df_all, test = send_df(df2)
         except:
             st.write("Enter proper date range") 
-        st.text("")
-        st.text("")
-
-        st.write(df2)
-        df_all, test = send_df(df2)
-       
+            
         st.text("")
         st.text("")
         st.text("")
@@ -298,6 +299,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
         st.text("")
         st.text("")
         st.text("")
+        
 
         if prm_type == 'Dissolved Oxygen':
             plot_do(df_all)
