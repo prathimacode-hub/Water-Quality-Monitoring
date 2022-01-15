@@ -173,7 +173,7 @@ def send_df(df2):
   df2 = df2.dropna()
   df2['Dissolved Organic Matter'] = df2['Dissolved Organic Matter']*1000
   df2['Suspended Matter'] = df2['Suspended Matter']*1000
-  test = pd.DataFrame(MinMaxScaler().fit_transform(df2.drop(['Salinity'], axis=1)), columns=df2.drop(['Salinity'c], axis=1).columns)
+  test = pd.DataFrame(MinMaxScaler().fit_transform(df2.drop(['Salinity'], axis=1)), columns=df2.drop(['Salinity'], axis=1).columns)
   # df = pd.read_csv('Data_2021_Tappar_Lake')
   return df2, test
   # return df.head()
