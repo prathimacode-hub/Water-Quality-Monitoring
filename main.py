@@ -268,7 +268,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
 
- 
+    st.write("Note: The location is pointed with a big blck dot on the map, kindly magnify to view more.")
     if st.button('Submit'):
         df2 = get_data(long, lat, str(slider1), str(slider2)) 
         st.text("")
