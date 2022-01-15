@@ -126,7 +126,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     #     ("Shinai Lake","Harmirsar Lake", "Tappar Reservoir Lake")
     # )
 
-    area = st.text_input('Write Area Of Interest', 'Water Body')
+    area = st.text_input('Type Area Of Interest', 'Water Body')
 
     
     
