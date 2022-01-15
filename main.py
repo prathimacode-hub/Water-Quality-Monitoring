@@ -1,4 +1,5 @@
 import datetime
+import math
 import folium
 import geopandas as gpd
 import geopy
@@ -186,7 +187,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     ax = sns.histplot(df_all['Dissolved Oxygen'], kde=True, stat="density")
     ax.tick_params(axis='y', colors='black') 
     ax.tick_params(axis='x', colors='black') 
-    ax.set_xticks(np.arange(floor(df_all['Dissolved Oxygen'].min()), df_all['Dissolved Oxygen'].max() + 1, 1))
+    ax.set_xticks(np.arange(math.floor(df_all['Dissolved Oxygen'].min()), df_all['Dissolved Oxygen'].max() + 1, 1))
     plt.setp(ax.get_xticklabels(), rotation=-10)
     # plt.show() 
     # plt.savefig('do.png', bbox_inches='tight')
