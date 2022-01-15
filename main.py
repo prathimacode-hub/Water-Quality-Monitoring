@@ -122,15 +122,30 @@ elif add_selectbox == 'Select AOI Data Parameters':
      "Dissolved Organic Matter","Dissolved Oxygen")
     )
     
-    col3, col4 = st.columns(2)
+    col3,_ = st.beta_columns((1,2)) # To make it narrower
     
-    d1 = st.sidebar.date_input('start date', datetime.date(2022,1,1))
+    format = 'MMM DD, YYYY'  # format output
+        
+    start_date = dt.date(year=2019,month=1,day=1)-relativedelta(years=5)  #  I need some range in the past
+    end_date = dt.datetime.now().date()-relativedelta(years=5)
+    max_days = end_date-start_date
+        
+    slider = col3.slider('Select date', min_value=start_date, value=end_date ,max_value=end_date, format=format)
+        ## Sanity check
+    st.table(pd.DataFrame([[start_date, slider, end_date]],
+                      columns=['start',
+                               'selected',
+                               'end'],
+                      index=['date']))
+    #col3, col4 = st.columns(2)
     
-    st.write(d1)
+    #d1 = st.sidebar.date_input('start date', datetime.date(2022,1,1))
     
-    d2 = st.sidebar.date_input('end date', datetime.date(2022,1,15))
+    #st.write(d1)
     
-    st.write(d2)
+    #d2 = st.sidebar.date_input('end date', datetime.date(2022,1,15))
+    
+    #st.write(d2)
     
     #d1 = st.date_input("Start Date")
     
