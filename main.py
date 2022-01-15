@@ -278,10 +278,11 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
     if st.button('Submit'):
-        st.write("Note-3: The location is pointed with a big black dot on the map, kindly magnify to view more.")
-        st.text("")
-        st.text("")
+        
         try:
+            st.write("Note-3: The location is pointed with a big black dot on the map, kindly magnify to view more.")
+            st.text("")
+            st.text("")
             df2 = get_data(long, lat, str(slider1), str(slider2))
         
             st.text("")
@@ -289,13 +290,14 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
             st.write(df2)
             df_all, test = send_df(df2)
+            st.text("")
+            st.text("")
+            st.text("")
+            st.write(predict_quality(df2, test))
         except:
             st.write("Enter proper date range") 
-            
-        st.text("")
-        st.text("")
-        st.text("")
-        st.write(predict_quality(df2, test))
+
+        
         st.text("")
         st.text("")
         st.text("")
