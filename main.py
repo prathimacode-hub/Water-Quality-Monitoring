@@ -185,7 +185,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     plt.setp(ax.get_xticklabels(), rotation=-10)
     plt.savefig('do.png', bbox_inches='tight')
     # st.pyplot(fig, clear_figure = True) 
-    st.write('do.png')
+    st.image(fig)
     
     # plt.show()    
     if st.button('Submit'):
