@@ -179,7 +179,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
     sns.set(font_scale = 1)
     mpl.use("agg")
-    lock = RendererAgg.lock
+    _lock = RendererAgg.lock
     with _lock:
 
         fig = plt.figure(figsize=(25,10))
