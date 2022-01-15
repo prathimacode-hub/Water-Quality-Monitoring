@@ -122,7 +122,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
      "Dissolved Organic Matter","Dissolved Oxygen")
     )
     
-    col3,_ = st.beta_columns((1,2)) # To make it narrower
+    col3,_ = st.columns((1,2)) # To make it narrower
     
     format = 'MMM DD, YYYY'  # format output
         
