@@ -4,7 +4,7 @@ import geemap
 import ipywidgets as widgets
 import pandas as pd
 import numpy as np
-
+from sklearn.preprocessing import MinMaxScaler
 
 ee.Authenticate()
 ee.Initialize()
@@ -273,6 +273,7 @@ def get_data(start_date, end_date):
 # df.to_csv('Data_2021_Tappar_Lake',index=False)
 
 def send_df():
+  # test = pd.DataFrame(MinMaxScaler().fit_transform(df2.drop(['Salinity', 'Class'], axis=1)), columns=df2.drop(['Salinity','Class'], axis=1).columns)
   df = pd.read_csv('Data_2021_Tappar_Lake')
   return df.head()
 
