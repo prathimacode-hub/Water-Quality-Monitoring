@@ -44,7 +44,12 @@ def get_data(long, lat, start_date, end_date):
                 .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20)) \
                 .median()
 
-
+  visualization = {
+  min: 0,
+  max: 3000,
+  bands: ['B4', 'B3', 'B2'],
+  }
+  Map.addLayer(sentinel, visualization, 'sent2rgb')
   mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
   mndwitr = mndwi.gt(0)
   ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
@@ -59,7 +64,8 @@ def get_data(long, lat, start_date, end_date):
 
   dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
 
-  Map.to_streamlit(width = 100, height=100)
+  Map.setCenter(long, lat, 5)
+  Map.to_streamlit(width = 100, height=600)
   # return "Done"
 
   col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
@@ -80,6 +86,8 @@ def get_data(long, lat, start_date, end_date):
                 .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(geometry)
   dm_2021_Jan_August_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
   suspended_matter_2021_Jan_August_test= rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).rename('suspended_matter')
+
+  
 
 
   latlon = ee.Image.pixelLonLat().addBands(dm_2021_Jan_August_test)
