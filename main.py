@@ -147,8 +147,16 @@ elif add_selectbox == 'Select AOI Data Parameters':
     start1 = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
 
     start2 = datetime.date(year=2024,month=11,day=1)
+    st.text("")
+    st.text("")
     
-    st.write("Note-1: DOn't exceed the difference of start and end date more than 6 months.")
+    st.write("Note-1:The difference between start date and end date should not exceed more than 6 months.")
+    st.text("")
+    st.text("")
+
+    st.write("Note-2: The minimum difference between start date and end date should be 2 months.")
+    st.text("")
+    st.text("")
     
     max_days = start2-start1
         
@@ -270,7 +278,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
     if st.button('Submit'):
-        st.write("Note-2: The location is pointed with a big black dot on the map, kindly magnify to view more.")
+        st.write("Note-3: The location is pointed with a big black dot on the map, kindly magnify to view more.")
         st.text("")
         st.text("")
         df2 = get_data(long, lat, str(slider1), str(slider2)) 
