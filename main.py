@@ -194,9 +194,10 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     # plt.show()    
     if st.button('Submit'):
+        
 
-        # mess = get_data(start_date, slider) 
-        # st.write(mess)
+        mess = get_data(start1, slider1) 
+        st.write(mess)
 
 
         if aoi_type == 'Shinai Lake':
