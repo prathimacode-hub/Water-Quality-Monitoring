@@ -71,7 +71,7 @@ def get_data(long, lat, start_date, end_date):
   Map.addLayer(dissolvedoxygen2,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
 
   # Map.setCenter(long, lat, 5)
-  Map.to_streamlit(width = 100, height=600)
+  Map.to_streamlit(width = 100, height=900)
   # return "Done"
 
   col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
