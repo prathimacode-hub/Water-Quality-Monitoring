@@ -280,6 +280,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
         
         try:
+            st.text("")
+            st.text("")
             st.write("Note-3: The location is pointed with a big black dot on the map, kindly magnify to view more.")
             st.text("")
             st.text("")
