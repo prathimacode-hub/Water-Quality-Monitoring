@@ -157,6 +157,7 @@ def get_data(long, lat, start_date, end_date):
     scale=100)
   # get data into three different arrays
   data_ph = np.array((ee.Array(latlon.get("ph")).getInfo()))
+  print("Done")
   df = pd.concat([pd.DataFrame(data_do, columns = ['Dissolved Oxygen']),\
              pd.DataFrame(data_ndsi, columns = ['Salinity']),\
              pd.DataFrame(data_lst, columns = ['Temperature']),\
