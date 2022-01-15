@@ -199,7 +199,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_salinity(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        fig = plt.figure(figsize=(20,6))
+        fig = plt.figure(figsize=(20,8))
         ax = sns.histplot(df_all['Salinity'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -210,7 +210,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_turbidity(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        fig = plt.figure(figsize=(30,6))
+        fig = plt.figure(figsize=(30,8))
         ax = sns.histplot(df_all['Turbidity'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -221,7 +221,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_temperature(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        fig = plt.figure(figsize=(30,6))
+        fig = plt.figure(figsize=(30,8))
         ax = sns.histplot(df_all['Temperature'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -232,18 +232,18 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_chlorophyll(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        fig = plt.figure(figsize=(30,6))
+        fig = plt.figure(figsize=(30,8))
         ax = sns.histplot(df_all['Chlorophyll'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
-        ax.set_xticks(np.arange(math.floor(df_all['Chlorophyll'].min()),df_all['Chlorophyll'].max() + 0.1, 0.01))
+        # ax.set_xticks(np.arange(math.floor(df_all['Chlorophyll'].min()),df_all['Chlorophyll'].max() + 0.1, 0.01))
         plt.setp(ax.get_xticklabels(), rotation=-10)
         st.pyplot(fig, clear_figure = True)
 
     def plot_pH(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        fig = plt.figure(figsize=(18,6))
+        fig = plt.figure(figsize=(18,8))
         ax = sns.histplot(df_all['pH'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
