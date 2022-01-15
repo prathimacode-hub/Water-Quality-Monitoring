@@ -6,8 +6,9 @@ import pandas as pd
 import numpy as np
 
 
-# ee.Authenticate()
-# ee.Initialize()
+ee.Authenticate()
+ee.Initialize()
+
 def get_data(start_date, end_date):
     
   Map = geemap.Map()
