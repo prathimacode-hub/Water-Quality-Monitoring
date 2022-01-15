@@ -148,7 +148,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     start2 = datetime.date(year=2024,month=11,day=1)
     
-    
+    st.write("Note-1: DOn't exceed the difference of start and end date more than 6 months.")
     
     max_days = start2-start1
         
@@ -270,7 +270,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
     if st.button('Submit'):
-        st.write("Note: The location is pointed with a big black dot on the map, kindly magnify to view more.")
+        st.write("Note-2: The location is pointed with a big black dot on the map, kindly magnify to view more.")
         st.text("")
         st.text("")
         df2 = get_data(long, lat, str(slider1), str(slider2)) 
