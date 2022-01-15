@@ -13,3 +13,4 @@ geemap==0.11.0
 ipywidgets==7.6.5
 ee==0.1.293
 numpy==1.19.5
+python==21.3.1
