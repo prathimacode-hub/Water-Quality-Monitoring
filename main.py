@@ -220,7 +220,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
         ax = sns.histplot(df_all['Turbidity'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
-        ax.set_xticks(np.arange(math.floor(df_all['Turbidity'].min()),df_all['Turbidity'].max() + 0.01, 0.1))
+        ax.set_xticks(np.arange(math.floor(df_all['Turbidity'].min()),df_all['Turbidity'].max() + 0.01, 0.5))
         plt.setp(ax.get_xticklabels(), rotation=-10)
         st.pyplot(fig, clear_figure = True)
 
