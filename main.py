@@ -266,7 +266,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
  
     if st.button('Submit'):
-        df2, mess = get_data(long, lat, str(slider1), str(slider2)) 
+        df2 = get_data(long, lat, str(slider1), str(slider2)) 
         st.text("")
         st.text("")
 
