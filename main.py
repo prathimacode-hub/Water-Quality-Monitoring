@@ -146,7 +146,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
         prm = prm_type.split(" ")
 
-        details = aoi_data[aoi_data['prm']==prm[0]]
+        st.write(prm)
+        
+        # details = aoi_data[aoi_data['prm']==prm[0]]
 
         coordinates = {
             'Kutch Region': [23.7337,69.8597]
