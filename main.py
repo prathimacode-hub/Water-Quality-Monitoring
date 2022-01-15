@@ -134,9 +134,11 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     format = 'MMM DD, YYYY'  # format output
         
-    start1 = datetime.date(year=2024,month=7,day=1)-relativedelta(years=5) #  I need some range in the past
+    start1 = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
+
+    end1 = datetime.date(year=2024,month=11,day=1)
     
-    end1 = datetime.datetime.now().date()+relativedelta(years=2)
+    # end1 = datetime.datetime.now().date()+relativedelta(years=2)
     
     max_days = end1-start1
         
@@ -148,9 +150,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
                                'end'],
                       index=['date']))
 
-    start2 = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
+    start2 = datetime.date(year=2024,month=2,day=1)-relativedelta(years=5) #  I need some range in the past
     
-    end2 = datetime.datetime.now().date()+relativedelta(years=2)
+    end2 = datetime.date(year=2024,month=12,day=1)
     
     max_days = end2-start2
         
