@@ -271,3 +271,8 @@ def get_data(start_date, end_date):
 #            pd.DataFrame(data_ndci, columns = ['Chlorophyll'])], axis=1, sort=False)
 
 # df.to_csv('Data_2021_Tappar_Lake',index=False)
+
+def send_df():
+  df = pd.read_csv('Data_2021_Tappar_Lake')
+  return df.head()
+
