@@ -300,7 +300,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
         
 
-        mess = get_data(start1, slider1) 
+        mess = get_data(slider1, slider2) 
         st.write(mess)
 
 
