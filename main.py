@@ -18,6 +18,7 @@ from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 from PIL import Image
 from streamlit_folium import folium_static
+from dateutil.relativedelta import relativedelta
 
 st.set_page_config(
     page_title="Water Quality Monitoring Dashboard for Kutch Region",
