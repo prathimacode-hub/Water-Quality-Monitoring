@@ -189,11 +189,114 @@ elif add_selectbox == 'Select AOI Data Parameters':
         ax.tick_params(axis='x', colors='black') 
         ax.set_xticks(np.arange(math.floor(df_all['Dissolved Oxygen'].min()), df_all['Dissolved Oxygen'].max() + 1, 0.5))
         plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+    def plot_dom(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(30,8))
+        ax = sns.histplot(df_all['Dissolved Organic Matter'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Dissolved Organic Matter'].min()),df_all['Dissolved Organic Matter'].max() + 2, 20))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
         st.pyplot(fig, clear_figure = True) 
     
+    def plot_salinity(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(20,6))
+        ax = sns.histplot(df_all['Salinity'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Salinity'].min()),df_all['Salinity'].max() + 0.1, 0.01))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+    def plot_turbidity(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(30,6))
+        ax = sns.histplot(df_all['Turbidity'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Turbidity'].min()),df_all['Turbidity'].max() + 0.01, 0.01))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+    def plot_temperature(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(30,6))
+        ax = sns.histplot(df_all['Temperature'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Temperature'].min()),df_all['Temperature'].max() + 1, 0.5))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+    def plot_chlorophyll(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(30,6))
+        ax = sns.histplot(df_all['Chlorophyll'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Chlorophyll'].min()),df_all['Chlorophyll'].max() + 0.1, 0.01))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+    def plot_pH(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(18,6))
+        ax = sns.histplot(df_all['pH'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['pH'].min()), df_all['pH'].max() + 1, 0.1))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+    def plot_sm(df_all):
+        mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
+        sns.set(font_scale = 2)
+        plt.figure(figsize=(20,9))
+        ax = sns.histplot(df_all['Suspended Matter'], kde=True, stat="density")
+        ax.tick_params(axis='y', colors='black') 
+        ax.tick_params(axis='x', colors='black') 
+        ax.set_xticks(np.arange(math.floor(df_all['Suspended Matter'].min()),df_all['Suspended Matter'].max() + 100, 20))
+        plt.setp(ax.get_xticklabels(), rotation=-10)
+        st.pyplot(fig, clear_figure = True)
+
+
+
     if prm_type == 'Dissolved Oxygen':
         plot_do(df_all)
-    # plt.show()    
+    elif prm_type == 'Salinity':
+        plot_salinity(df_all)
+    elif prm_type == 'Land Surface Temperature':
+        plot_temperature(df_all)
+    elif prm_type == 'Turbidity':
+        plot_turbidity(df_all)
+    elif prm_type == 'pH':
+        plot_pH(df_all)
+    elif prm_type == 'Chlorophyll':
+        plot_chlorophyll(df_all)
+    elif prm_type == 'Suspended Matter':
+        plot_sm(df_all)
+    elif prm_type == 'Dissolved Organic Matter':
+        plot_dom(df_all)
+    else:
+        plot_dom(df_all)
+        plot_pH(df_all)
+        plot_sm(df_all)
+        plot_chlorophyll(df_all)
+        plot_turbidity(df_all)
+        plot_temperature(df_all)
+        plot_salinity(df_all)
+        plot_do(df_all)
+
+        
     if st.button('Submit'):
         
 
@@ -216,7 +319,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
         prm = prm_type.split(" ")
 
-        st.write(prm)
+        # st.write(prm)
         
         # details = aoi_data[aoi_data['prm']==prm[0]]
 
