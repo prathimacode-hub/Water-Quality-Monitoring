@@ -271,7 +271,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
         
         latlon, starting = get_data(long, lat, slider1, slider2)
-        st.write(latlon)
+        st.write(print(latlon))
         st.write(starting)
         # df2 = get_data(long, lat, slider1, slider2) 
         # st.write(mess)
