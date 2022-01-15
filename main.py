@@ -275,6 +275,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
         # st.write(latlon)
         # st.write(starting)
         # df2 = get_data(long, lat, slider1, slider2) 
+        st.text("")
+        st.text("")
+
         st.write(df2)
         df_all, test = send_df(df2)
         # st.write(df_all)
@@ -282,6 +285,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
         st.text("")
         st.text("")
         st.write(predict_quality(df2, test))
+        st.text("")
+        st.text("")
+        st.text("")
 
         if prm_type == 'Dissolved Oxygen':
             plot_do(df_all)
