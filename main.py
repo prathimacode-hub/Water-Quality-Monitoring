@@ -8,7 +8,6 @@ import joblib
 import osmnx as ox
 import shapely.wkt
 import pandas as pd
-#import plotly.express as px
 import streamlit as st
 import streamlit.components.v1 as components
 import time
@@ -266,21 +265,15 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     
 
-    global test
-    df2 = ''   
+ 
     if st.button('Submit'):
-        
-        # st.write(type(slider1))
-        df2, mess = get_data(long, lat, str(slider1), str(slider2))
-        # st.write(latlon)
-        # st.write(starting)
-        # df2 = get_data(long, lat, slider1, slider2) 
+        df2, mess = get_data(long, lat, str(slider1), str(slider2)) 
         st.text("")
         st.text("")
 
         st.write(df2)
         df_all, test = send_df(df2)
-        # st.write(df_all)
+       
         st.text("")
         st.text("")
         st.text("")
@@ -334,13 +327,12 @@ elif add_selectbox == 'Select AOI Data Parameters':
         
 
 
-elif add_selectbox == 'Result':
+# elif add_selectbox == 'Result':
     
-    st.subheader('OUR RESULT')
-    st.markdown('<h4></h4>', unsafe_allow_html=True)
-    st.image("", width=500)
-    # if test:
-    #     st.write(predict_quality(df2, test))
+#     st.subheader('OUR RESULT')
+#     st.markdown('<h4></h4>', unsafe_allow_html=True)
+#     st.image("", width=500)
+   
 
         
         

@@ -6,21 +6,12 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
-# ee.Authenticate()
-# ee.Initialize()
+
 
 def get_data(long, lat, start_date, end_date):
     
   Map = geemap.Map()
-  # long = float(long)
-  # lat = float(lat)
-
-  # start_date = '2021-01-01'
-  # end_date = '2021-06-30'
-
-  # Kankaria Lake, Ahmedabad
-
-  # geometry1 = ee.Geometry.Point([72.6026,23.0063])
+  
   geometry1 = ee.Geometry.Point([long,lat])
 
   geometry = ee.Geometry.Polygon([
@@ -70,9 +61,7 @@ def get_data(long, lat, start_date, end_date):
   dissolvedoxygen2  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen2').mask(mndwitr)
   Map.addLayer(dissolvedoxygen2,{'min':6.5,'max':8,'palette':['red','green','blue']},'do')
 
-  # Map.setCenter(long, lat, 5)
-  # Map.to_streamlit(width = 100, height=900)
-  # return "Done"
+  
 
   col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
   .filterDate(start_date,end_date) \
@@ -111,7 +100,7 @@ def get_data(long, lat, start_date, end_date):
     scale=100,
     tileScale = 16)
   # get data into three different arrays
-  # return latlon, starting
+ 
   data_dom_2021_Jan_August_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
 
   latlon = ee.Image.pixelLonLat().addBands(suspended_matter_2021_Jan_August_test)
@@ -180,7 +169,7 @@ def get_data(long, lat, start_date, end_date):
     scale=100)
   # get data into three different arrays
   data_ph = np.array((ee.Array(latlon.get("ph")).getInfo()))
-  # print("Done")
+  
   df = pd.concat([pd.DataFrame(data_do, columns = ['Dissolved Oxygen']),\
              pd.DataFrame(data_ndsi, columns = ['Salinity']),\
              pd.DataFrame(data_lst, columns = ['Temperature']),\
@@ -190,7 +179,7 @@ def get_data(long, lat, start_date, end_date):
              pd.DataFrame(data_sm_2021_Jan_August_test, columns = ['Suspended Matter']),\
              pd.DataFrame(data_ndci, columns = ['Chlorophyll'])], axis=1, sort=False)
   
-  return df, "Done"
+  return df
 
 def send_df(df2):
   df2 = df2.dropna()

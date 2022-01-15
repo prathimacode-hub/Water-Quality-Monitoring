@@ -16,7 +16,7 @@ def salinity(salinity_score):
   else :
     return 'Needs Treatment'
 
-# salinity_class = salinity(salinity_score)
+
 
 def predict_quality(df2, data):
     
@@ -39,9 +39,7 @@ def predict_quality(df2, data):
                 df2.loc[row,'Class'] = 0
         else :
             df2.loc[row,'Class'] = 0
-    # print('haha')
-
-    # df2['Class'] = preds
+   
     dict = {0:'Needs Treatment', 1:'poor', 2:'good'}
     df2 = df2.replace({"Class": dict})
     return df2
