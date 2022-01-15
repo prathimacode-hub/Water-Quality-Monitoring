@@ -45,14 +45,14 @@ def get_data(start_date, end_date):
   mndwi = sentinel.normalizedDifference(['B3','B11']).rename('mndwi')
   mndwitr = mndwi.gt(0)
   ndsi = sentinel.normalizedDifference(['B11','B12']).rename('ndsi')
-  ndsi2 = sentinel2.normalizedDifference(['B11','B12']).rename('ndsi2').mask(mndwitr)
+  ndsi2 = sentinel.normalizedDifference(['B11','B12']).rename('ndsi2').mask(mndwitr)
   Map.addLayer(ndsi1,{'min':0.1,'max':0.4,'palette':['cyan','orange','red']},'salinity')
   ndti = sentinel.normalizedDifference(['B4','B3']).rename('ndti')
-  ndti2 = sentinel2.normalizedDifference(['B4','B3']).rename('ndti2').mask(mndwitr)
+  ndti2 = sentinel.normalizedDifference(['B4','B3']).rename('ndti2').mask(mndwitr)
   Map.addLayer(ndti2,{'min':-1,'max':+1,'palette':['blue','pink','brown']},'turbidity')
 
   ndci = sentinel.normalizedDifference(['B5','B4']).rename('ndci')
-  ndci2 = sentinel2.normalizedDifference(['B5','B4']).rename('ndci2').mask(mndwitr)
+  ndci2 = sentinel.normalizedDifference(['B5','B4']).rename('ndci2').mask(mndwitr)
   Map.addLayer(ndci2,{'min':-1,'max':+1,'palette':['green','pink','brown']},'chlorophyll')
 
 
