@@ -25,8 +25,7 @@ import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import time
-from matplotlib.backends.backend_agg import RendererAgg
-from bokeh.plotting import figure
+
 
 st.set_page_config(
     page_title="Water Quality Monitoring Dashboard for Kutch Region",
