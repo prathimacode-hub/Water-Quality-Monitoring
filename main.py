@@ -194,7 +194,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_dom(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(30,8))
+        fig = plt.figure(figsize=(30,8))
         ax = sns.histplot(df_all['Dissolved Organic Matter'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -205,7 +205,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_salinity(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(20,6))
+        fig = plt.figure(figsize=(20,6))
         ax = sns.histplot(df_all['Salinity'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -216,7 +216,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_turbidity(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(30,6))
+        fig = plt.figure(figsize=(30,6))
         ax = sns.histplot(df_all['Turbidity'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -227,7 +227,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_temperature(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(30,6))
+        fig = plt.figure(figsize=(30,6))
         ax = sns.histplot(df_all['Temperature'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -238,7 +238,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_chlorophyll(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(30,6))
+        fig = plt.figure(figsize=(30,6))
         ax = sns.histplot(df_all['Chlorophyll'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -249,7 +249,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_pH(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(18,6))
+        fig = plt.figure(figsize=(18,6))
         ax = sns.histplot(df_all['pH'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
@@ -260,7 +260,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     def plot_sm(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
         sns.set(font_scale = 2)
-        plt.figure(figsize=(20,9))
+        fig = plt.figure(figsize=(20,9))
         ax = sns.histplot(df_all['Suspended Matter'], kde=True, stat="density")
         ax.tick_params(axis='y', colors='black') 
         ax.tick_params(axis='x', colors='black') 
