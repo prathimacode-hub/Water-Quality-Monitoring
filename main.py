@@ -116,6 +116,10 @@ elif add_selectbox == 'Features':
     
     
 elif add_selectbox == 'Select AOI Data Parameters':
+
+    long = st.text_input('Longitude', 'long')
+
+    lat = st.text_input('Latitude', 'lat')
     
     st.subheader('SELECT FOR AOI DATA PARAMETERS')    
     
@@ -265,7 +269,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
         
 
-        df2 = get_data(slider1, slider2) 
+        df2 = get_data(long, lat, slider1, slider2) 
         # st.write(mess)
         df_all, test = send_df(df2)
         st.write(df_all)
