@@ -128,15 +128,29 @@ elif add_selectbox == 'Select AOI Data Parameters':
     
     format = 'MMM DD, YYYY'  # format output
         
-    start_date = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
+    start1 = datetime.date(year=2024,month=7,day=1)-relativedelta(years=5) #  I need some range in the past
     
-    end_date = datetime.datetime.now().date()+relativedelta(years=2)
+    end1 = datetime.datetime.now().date()+relativedelta(years=2)
     
-    max_days = end_date-start_date
+    max_days = end1-start1
         
-    slider = col3.slider('Select date', min_value=start_date, value=end_date ,max_value=end_date, format=format)
+    slider1 = col3.slider('Select date', min_value=start1, value=end1 ,max_value=end1, format=format)
         ## Sanity check
-    st.table(pd.DataFrame([[start_date, slider, end_date]],
+    st.table(pd.DataFrame([[start1, slider1, end1]],
+                      columns=['start_selected',
+                               'end_selected',
+                               'end'],
+                      index=['date']))
+
+    start2 = datetime.date(year=2024,month=1,day=1)-relativedelta(years=5) #  I need some range in the past
+    
+    end2 = datetime.datetime.now().date()+relativedelta(years=2)
+    
+    max_days = end2-start2
+        
+    slider2 = col3.slider('Select date', min_value=start2, value=end2, max_value=end2, format=format)
+        ## Sanity check
+    st.table(pd.DataFrame([[start2, slider2, end2]],
                       columns=['start_selected',
                                'end_selected',
                                'end'],
