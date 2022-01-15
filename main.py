@@ -117,8 +117,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
     )
     
     prm_type = col2.selectbox(
-        "Data Selection Parameters",
-        ("pH","Salinity","Turbidity","Land Surface Temperature","Chlorophyll","Suspended matter",
+        "Data Visualization Parameters",
+        ("All","pH","Salinity","Turbidity","Land Surface Temperature","Chlorophyll","Suspended matter",
      "Dissolved Organic Matter","Dissolved Oxygen")
     )
     
