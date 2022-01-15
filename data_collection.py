@@ -86,29 +86,29 @@ def get_data(long, lat, start_date, end_date):
 
   rgb = data.select(['Oa08_radiance', 'Oa06_radiance', 'Oa04_radiance'])\
                 .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(geometry)
-  dm_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
-  suspended_matter_test= rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).rename('suspended_matter')
+  dm_2021_Jan_August_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
+  suspended_matter_2021_Jan_August_test= rgb.select('Oa08_radiance').divide(rgb.select('Oa06_radiance')).rename('suspended_matter')
 
 
-  latlon = ee.Image.pixelLonLat().addBands(dm_test)
+  latlon = ee.Image.pixelLonLat().addBands(dm_2021_Jan_August_test)
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16)
+    tileScale = 16);
   # get data into three different arrays
-  data_dom_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
+  data_dom_2021_Jan_August_test = np.array((ee.Array(latlon.get("dom")).getInfo()))
 
-  latlon = ee.Image.pixelLonLat().addBands(suspended_matter_test)
+  latlon = ee.Image.pixelLonLat().addBands(suspended_matter_2021_Jan_August_test)
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
     geometry=geometry,
     scale=100,
-    tileScale = 16)
+    tileScale = 16);
   # get data into three different arrays
-  data_sm_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
+  data_sm_2021_Jan_August_test= np.array((ee.Array(latlon.get("suspended_matter")).getInfo()))
 
   latlon = ee.Image.pixelLonLat().addBands(temp)
 
