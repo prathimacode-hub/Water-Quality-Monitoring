@@ -328,7 +328,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
                 plot_salinity(df_all)
                 plot_do(df_all)
         except:
-            st.write("!!Enter proper date range!!") 
+            st.write("!!  Enter proper date range  !!") 
 
 
         # if aoi_type == 'Shinai Lake':
