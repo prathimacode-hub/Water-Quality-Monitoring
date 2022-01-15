@@ -134,9 +134,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
      "Dissolved Organic Matter","Dissolved Oxygen")
     )
 
-    long = st.number_input('Longitude', format="%.4f")
+    long = st.number_input('Longitude',min_value=72.6026 , format="%.4f")
 
-    lat = st.number_input('Latitude', format="%.4f")
+    lat = st.number_input('Latitude', min_value =23.0063 ,format="%.4f")
     
     col3,_ = st.columns((1,2)) # To make it narrower
     
