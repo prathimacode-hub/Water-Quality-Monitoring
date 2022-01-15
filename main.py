@@ -23,6 +23,7 @@ from data_collection import *
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+import time
 
 st.set_page_config(
     page_title="Water Quality Monitoring Dashboard for Kutch Region",
@@ -185,8 +186,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
     plt.setp(ax.get_xticklabels(), rotation=-10)
     plt.show() 
     plt.savefig('do.png', bbox_inches='tight')
-    # st.pyplot(fig, clear_figure = True) 
-    st.image('do.png')
+    st.pyplot(fig, clear_figure = True) 
+    # st.image('do.png')
+    time.sleep(5)
     
     # plt.show()    
     if st.button('Submit'):
