@@ -53,6 +53,7 @@ def get_data(start_date, end_date):
   ph  = ee.Image(8.339).subtract(ee.Image(0.827).multiply(sentinel.select('B1').divide(sentinel.select('B8')))).rename('ph')
 
   dissolvedoxygen  = ee.Image(-0.0167).multiply(sentinel.select('B8')).add(ee.Image(0.0067).multiply(sentinel.select('B9'))).add(ee.Image(0.0083).multiply(sentinel.select('B11'))).add(ee.Image(9.577)).rename('dissolvedoxygen')
+  Map.to_streamlit(width = 100, height=100)
   return "Done"
 
 # col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
