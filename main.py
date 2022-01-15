@@ -146,7 +146,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
 
     start2 = datetime.date(year=2024,month=11,day=1)
     
-    # end1 = datetime.datetime.now().date()+relativedelta(years=2)
+    
     
     max_days = start2-start1
         
@@ -172,8 +172,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
                                'end2'],
                       index=['date']))
     
-    # df_all = send_df()
-    # st.write(df_all)
+    
     
     def plot_do(df_all):
         mpl.rcParams.update({"axes.grid" : True, "grid.color": "black"})
@@ -271,7 +270,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     if st.button('Submit'):
         
         latlon, starting = get_data(long, lat, slider1, slider2)
-        st.write(print(latlon))
+        st.write(latlon)
         st.write(starting)
         # df2 = get_data(long, lat, slider1, slider2) 
         # st.write(mess)
