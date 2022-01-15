@@ -279,6 +279,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
         df_all, test = send_df(df2)
         # st.write(df_all)
 
+        st.write(predict_quality(df2, test))
+
         if prm_type == 'Dissolved Oxygen':
             plot_do(df_all)
         elif prm_type == 'Salinity':
@@ -357,8 +359,8 @@ elif add_selectbox == 'Result':
     st.subheader('OUR RESULT')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
     st.image("", width=500)
-    if test:
-        st.write(predict_quality(df2, test))
+    # if test:
+    #     st.write(predict_quality(df2, test))
 
         
         
