@@ -357,8 +357,8 @@ elif add_selectbox == 'Result':
     st.subheader('OUR RESULT')
     st.markdown('<h4></h4>', unsafe_allow_html=True)
     st.image("", width=500)
-    # if test:
-    #     st.write(predict_quality(df2, test))
+    if test:
+        st.write(predict_quality(df2, test))
 
         
         
