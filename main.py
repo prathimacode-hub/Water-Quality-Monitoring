@@ -273,9 +273,6 @@ elif add_selectbox == 'Select AOI Data Parameters':
         st.pyplot(fig, clear_figure = True)
 
 
-
-    
-
     
     if st.button('Submit'):
         
@@ -377,11 +374,11 @@ elif add_selectbox == 'Conclusion':
     
     st.subheader('PROJECT SUMMARY')
 
-    st.markdown('Write Project Summary here', unsafe_allow_html=True) 
+    st.markdown('', unsafe_allow_html=True) 
     
     st.subheader('CONCLUSION')
     
-    st.markdown('Write Conclusion here', unsafe_allow_html=True)
+    st.markdown('We have created a centralized dashboard to check on with the water conditions visually in real-time. This would help in addressing the water quality needs arised so as to give immediate attention to the users', unsafe_allow_html=True)
     
     
 elif add_selectbox == 'Team':
