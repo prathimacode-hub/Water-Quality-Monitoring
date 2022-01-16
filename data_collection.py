@@ -12,7 +12,7 @@ def get_data(long, lat, start_date, end_date):
 
   Map = geemap.Map()
 
-  geometry1 = ee.Geometry.Point([long,lat])
+  # geometry1 = ee.Geometry.Point([long,lat])
 
   #start_date = '2021-01-01'
   #end_date = '2021-06-30'
@@ -20,36 +20,52 @@ def get_data(long, lat, start_date, end_date):
   # Kankaria Lake, Ahmedabad
 
   # geometry1 = ee.Geometry.Point([72.6026,23.0063])
+  geometry = ee.Geometry.Point([long,lat])
+  image = ee.ImageCollection("COPERNICUS/S2_SR") \
+              .filterBounds(geometry) \
+              .filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE',20)) \
+              .first()
+  # Create an NDWI image, define visualization parameters and display.
+  ndwi = image.normalizedDifference(['B3', 'B8'])
+  # Mask the non-watery parts of the image, where NDWI < 0.4.
+  ndwiMasked = ndwi.updateMask(ndwi.gte(0.4))
+  ndwiMasked1= ndwiMasked.toInt()
+  # vectors = ndwiMasked1.reduceToVectors({
+  #   'scale': 30.0,
+  #   'geometryType': 'polygon',
+  #   'eightConnected': False,
+  #   'maxPixels':10000000
+  # })
+  vectors = ndwiMasked1.reduceToVectors(scale = 30.0, geometryType = 'polygon', eightConnected = False, maxPixels = 10000000, bestEffort=True)
+  # geometry = ee.Geometry.Polygon([
+  #   [72.5986408493042,23.006549566021803],
+  #  [72.59902708740235,23.004890477468116],
+  #  [72.60070078582764,23.003863412427236],
+  #  [72.60040037841797,23.007142092704626],
+  #  [72.60215990753174,23.006668071566512],
+  #  [72.60173075408936,23.003784407100333],
+  #   [72.60366194458008,23.00516699364359],
+  #  [72.60374777526856,23.00686558057643],
+  #   [72.6026748916626,23.00805062856477],
+  #   [72.60082953186036,23.00880115357416],
+  #   [72.59945624084473,23.00809012998513],
+  #   [72.5986408493042,23.006549566021803],
+  #     [72.5986408493042,23.006549566021803],
+  #   [72.59902708740235,23.004890477468116],
+  #   [72.60070078582764,23.003863412427236],
+  #   [72.60040037841797,23.007142092704626],
+  #   [72.60215990753174,23.006668071566512],
+  #   [72.60173075408936,23.003784407100333],
+  #     [72.60366194458008,23.00516699364359],
+  #   [72.60374777526856,23.00686558057643],
+  #     [72.6026748916626,23.00805062856477],
+  #     [72.60082953186036,23.00880115357416],
+  #     [72.59945624084473,23.00809012998513],
+  #     [72.5986408493042,23.006549566021803]
+  # ])
 
-  geometry = ee.Geometry.Polygon([
-    [72.5986408493042,23.006549566021803],
-   [72.59902708740235,23.004890477468116],
-   [72.60070078582764,23.003863412427236],
-   [72.60040037841797,23.007142092704626],
-   [72.60215990753174,23.006668071566512],
-   [72.60173075408936,23.003784407100333],
-    [72.60366194458008,23.00516699364359],
-   [72.60374777526856,23.00686558057643],
-    [72.6026748916626,23.00805062856477],
-    [72.60082953186036,23.00880115357416],
-    [72.59945624084473,23.00809012998513],
-    [72.5986408493042,23.006549566021803],
-      [72.5986408493042,23.006549566021803],
-    [72.59902708740235,23.004890477468116],
-    [72.60070078582764,23.003863412427236],
-    [72.60040037841797,23.007142092704626],
-    [72.60215990753174,23.006668071566512],
-    [72.60173075408936,23.003784407100333],
-      [72.60366194458008,23.00516699364359],
-    [72.60374777526856,23.00686558057643],
-      [72.6026748916626,23.00805062856477],
-      [72.60082953186036,23.00880115357416],
-      [72.59945624084473,23.00809012998513],
-      [72.5986408493042,23.006549566021803]
-  ])
-
-  Map.addLayer(geometry1)
-  sentinel = ee.ImageCollection("COPERNICUS/S2_SR").filterBounds(geometry) \
+  Map.addLayer(geometry)
+  sentinel = ee.ImageCollection("COPERNICUS/S2_SR").filterBounds(vectors) \
                 .filterDate(start_date,end_date) \
                 .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20)) \
                 .median()
@@ -87,7 +103,7 @@ def get_data(long, lat, start_date, end_date):
 
   col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2') \
   .filterDate(start_date,end_date) \
-  .filterBounds(geometry).median()
+  .filterBounds(vectors).median()
 
   temp  = col.select('ST_B.*').multiply(0.00341802).add(149.0).subtract(273.15).rename('temp')
 
@@ -98,10 +114,10 @@ def get_data(long, lat, start_date, end_date):
   starting = start_date
   ending = end_date
 
-  data = ee.ImageCollection('COPERNICUS/S3/OLCI').filterDate(starting, ending).filterBounds(geometry)
+  data = ee.ImageCollection('COPERNICUS/S3/OLCI').filterDate(starting, ending).filterBounds(vectors)
 
   rgb = data.select(['Oa08_radiance', 'Oa06_radiance', 'Oa04_radiance'])\
-                .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(geometry)
+                .median().multiply(ee.Image([0.00876539, 0.0123538, 0.0115198])).clip(vectors)
   dm_2021_Jan_August_test = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).rename('dom')
   dom2 = rgb.select('Oa08_radiance').divide(rgb.select('Oa04_radiance')).mask(mndwitr)
   Map.addLayer(dom2,{'min':0,'max':0.8,'palette':['green','red','yellow']},'Dissolved organic matter')
@@ -118,7 +134,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100,
     tileScale = 16)
   # get data into three different arrays
@@ -129,7 +145,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100,
     tileScale = 16)
   # get data into three different arrays
@@ -140,7 +156,7 @@ def get_data(long, lat, start_date, end_date):
 
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100)
 
   data_lst = np.array((ee.Array(latlon.get("temp")).getInfo()))
@@ -150,7 +166,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100)
   # get data into three different arrays
   data_ndti = np.array((ee.Array(latlon.get("ndti")).getInfo()))
@@ -159,7 +175,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100)
   # get data into three different arrays
   data_ndsi = np.array((ee.Array(latlon.get("ndsi")).getInfo()))
@@ -168,7 +184,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100)
   # get data into three different arrays
   data_ndci = np.array((ee.Array(latlon.get("ndci")).getInfo()))
@@ -177,7 +193,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100,
     tileScale = 16)
   # get data into three different arrays
@@ -187,7 +203,7 @@ def get_data(long, lat, start_date, end_date):
   # apply reducer to list
   latlon = latlon.reduceRegion(
     reducer=ee.Reducer.toList(),
-    geometry=geometry,
+    geometry=vectors,
     scale=100)
   # get data into three different arrays
   data_ph = np.array((ee.Array(latlon.get("ph")).getInfo()))
