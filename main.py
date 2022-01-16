@@ -371,10 +371,21 @@ elif add_selectbox == 'Visualizations':
    
     
 elif add_selectbox == 'Conclusion':
-    
+
+    st.subheader('TECH STACK')
+
+    st.markdown('• Data Collection - Google Earth Datasets', unsafe_allow_html=True)
+    st.markdown('• Data Visualization - Google Earth Engine', unsafe_allow_html=True)
+    st.markdown('• Satellite Imagery Analysis - Google Earth Engine', unsafe_allow_html=True) 
+    st.markdown('• Machine Learning - Python, Jupyter Notebooks, Random Forest', unsafe_allow_html=True) 
+    st.markdown('• Dashboard - Streamlit, Heroku', unsafe_allow_html=True) 
+ 
     st.subheader('PROJECT SUMMARY')
 
-    st.markdown('', unsafe_allow_html=True) 
+    st.markdown('• Water quality is one of the main challenges that societies are facing in the 21st century, threatening human health, limiting food production, reducing ecosystem functions, and hindering economic growth. It corrupts straightforwardly into ecological, financial, and social issues.', unsafe_allow_html=True) 
+    st.markdown('• This dashboard will reinforce the abilities of decision-makers to monitor water quality more effectively and efficiently.', unsafe_allow_html=True) 
+    st.markdown('• As the traditional in situ method is costly as well as time-consuming so using advanced geospatial technology water quality can be monitored spatially and temporally in near real- time and self-operating.', unsafe_allow_html=True) 
+
     
     st.subheader('CONCLUSION')
     
