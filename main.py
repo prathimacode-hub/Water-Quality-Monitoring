@@ -96,8 +96,12 @@ elif add_selectbox == 'About':
     
     st.markdown('<h4>Developments Made</h4>', unsafe_allow_html=True)
     st.markdown('• Water Quality Parameters were identified which includes physical, biological and chemical parameters',unsafe_allow_html=True)
-    st.markdown('• ',unsafe_allow_html=True)
- 
+    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing',unsafe_allow_html=True)
+    st.markdown('  data used with machine learning and different satellite sources were revised properly.',unsafe_allow_html=True)
+    st.markdown('  data used with machine learning and different satellite sources were revised properly.',unsafe_allow_html=True)
+    st.markdown('  data used with machine learning and different satellite sources were revised properly.',unsafe_allow_html=True)
+    st.markdown('  data used with machine learning and different satellite sources were revised properly.',unsafe_allow_html=True)
+
 
 elif add_selectbox == 'Features':
 
