@@ -109,9 +109,9 @@ elif add_selectbox == 'Features':
 
     st.subheader('PROJECT ENDORSEMENTS')
 
-    st.markdown('• ', unsafe_allow_html=True)
-    st.markdown('• ', unsafe_allow_html=True)
-    st.markdown('• ', unsafe_allow_html=True)
+    st.markdown('• Projecting the quality of water bodies in the Kutch Region', unsafe_allow_html=True)
+    st.markdown('• Making it more centralized to analyze and monitor the existing water-body conditions', unsafe_allow_html=True)
+    st.markdown('• Identification of parameters compared with the standard threshold values', unsafe_allow_html=True)
     
     
 elif add_selectbox == 'Select AOI Data Parameters':
@@ -354,14 +354,25 @@ elif add_selectbox == 'Visualizations':
    
     
 elif add_selectbox == 'Conclusion':
-    
+
+    st.subheader('TECH STACK')
+
+    st.markdown('• Data Collection - Google Earth Datasets', unsafe_allow_html=True)
+    st.markdown('• Data Visualization - Google Earth Engine', unsafe_allow_html=True)
+    st.markdown('• Satellite Imagery Analysis - Google Earth Engine', unsafe_allow_html=True) 
+    st.markdown('• Machine Learning - Python, Jupyter Notebooks, Random Forest', unsafe_allow_html=True) 
+    st.markdown('• Dashboard - Streamlit, Heroku', unsafe_allow_html=True) 
+
     st.subheader('PROJECT SUMMARY')
 
-    st.markdown('Write Project Summary here', unsafe_allow_html=True) 
+    st.markdown('', unsafe_allow_html=True) 
+    st.markdown('• Water quality is one of the main challenges that societies are facing in the 21st century, threatening human health, limiting food production, reducing ecosystem functions, and hindering economic growth. It corrupts straightforwardly into ecological, financial, and social issues.', unsafe_allow_html=True) 
+    st.markdown('• This dashboard will reinforce the abilities of decision-makers to monitor water quality more effectively and efficiently.', unsafe_allow_html=True) 
+    st.markdown('• As the traditional in situ method is costly as well as time-consuming so using advanced geospatial technology water quality can be monitored spatially and temporally in near real- time and self-operating.', unsafe_allow_html=True) 
     
     st.subheader('CONCLUSION')
     
-    st.markdown('Write Conclusion here', unsafe_allow_html=True)
+    st.markdown('We have created a centralized dashboard to check on with the water conditions visually in real-time. This would help in addressing the water quality needs arised so as to give immediate attention to the users', unsafe_allow_html=True)
     
     
 elif add_selectbox == 'Team':
