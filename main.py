@@ -150,7 +150,7 @@ elif add_selectbox == 'Select AOI Data Parameters':
     st.text("")
     st.text("")
     
-    st.write("Note-1:The difference between start date and end date should not exceed more than 6 months.")
+    st.write("Note-1:The difference between start date and end date should not exceed more than 4 months.")
     st.text("")
     st.text("")
 
@@ -367,29 +367,29 @@ elif add_selectbox == 'Team':
     
     st.subheader('COLLABORATORS')
 
-    st.markdown('<a href="https://www.linkedin.com/in/tanisha-banik-04b511173/">Tanisha Banik</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/tanisha-banik-04b511173/">Tanisha Banik</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/renju-zachariah-30982247/">Renju Zacharaiah</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/renju-zachariah-30982247/">Renju Zacharaiah</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/ishita-kheria-20b1b31ab/">Ishita Kheria</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/ishita-kheria-20b1b31ab/">Ishita Kheria</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/sairam-kannan-8648a0138/">SaiRam Kannan</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/sairam-kannan-8648a0138/">SaiRam Kannan</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/prathima-kadari/">Prathima Kadari</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/prathima-kadari/">Prathima Kadari</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/himanshu-mishra-851459b5/">Himanshu Mishra</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/himanshu-mishra-851459b5/">Himanshu Mishra</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/bharati-panigrahi-10a9461a0/">Bharati Panigrahi</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/bharati-panigrahi-10a9461a0/">Bharati Panigrahi</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/deepali-bidwai/">Deepali Bidwai</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/deepali-bidwai/">Deepali Bidwai</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/drij-chudasama-2a112a168/">Drij Chudasama</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/drij-chudasama-2a112a168/">Drij Chudasama</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="">Kiran Ryakala</a>',
+    st.markdown('• <a href="">Kiran Ryakala</a>',
                 unsafe_allow_html=True)
     
 
     st.subheader('PROJECT MANAGER')
 
-    st.markdown('<a href="https://www.linkedin.com/in/chancy-shah-671787119/">Chancy Shah</a>', unsafe_allow_html=True)
+    st.markdown('• <a href="https://www.linkedin.com/in/chancy-shah-671787119/">Chancy Shah</a>', unsafe_allow_html=True)
                 
