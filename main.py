@@ -96,7 +96,7 @@ elif add_selectbox == 'About':
     
     st.markdown('<h4>Developments Made</h4>', unsafe_allow_html=True)
     st.markdown('• Water Quality Parameters were identified which includes physical, biological and chemical parameters',unsafe_allow_html=True)
-    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing data used with machine learning and &nbsp; different satellite sources were revised properly.',unsafe_allow_html=True)
+    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing data used with machine learning &nbsp; and different satellite sources were revised properly.',unsafe_allow_html=True)
     st.markdown('• Various Data sources were searched in Google Earth Engine and relevant sources were selected for our use-case.',unsafe_allow_html=True)
     st.markdown('• Analysed the images from the selected sources and applied various standard formulae were applied to analyse the colours of the &nbsp; water body regions.',unsafe_allow_html=True)
     st.markdown('• Final water quality parameters were selected and their names listed along with their band formulae.',unsafe_allow_html=True)
