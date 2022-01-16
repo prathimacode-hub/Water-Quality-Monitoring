@@ -333,29 +333,8 @@ elif add_selectbox == 'Select AOI Data Parameters':
             st.write("!!  Enter proper date range  !!") 
 
 
-        # if aoi_type == 'Shinai Lake':
-        #     aoi_data = pd.read_csv('Data_Shinai_Lake_2019')
-        #     aoi_data = pd.read_csv('Data_2020_Shinai_Lake')
-        #     aoi_data = pd.read_csv('Data_2021_Shinai_Lake')
-        # elif aoi_type == 'Harmirsar Lake':
-        #     aoi_data = pd.read_csv('Data_2019_Harmisar_Lake')
-        #     aoi_data = pd.read_csv('Data_2020_Harmisar_Lake')
-        #     aoi_data = pd.read_csv('Data_2021_Harmisar_Lake')
-        # elif aoi_type == 'Tappar Lake':
-        #     aoi_data = pd.read_csv('Data_2019_Tappar_Lake')
-        #     aoi_data = pd.read_csv('Data_2020_Tappar_Lake')
-        #     aoi_data = pd.read_csv('Data_2021_Tappar_Lake')
-
        
 
-        
-
-
-# elif add_selectbox == 'Result':
-    
-#     st.subheader('OUR RESULT')
-#     st.markdown('<h4></h4>', unsafe_allow_html=True)
-#     st.image("", width=500)
    
 
         
