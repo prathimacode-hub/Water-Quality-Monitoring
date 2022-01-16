@@ -2,7 +2,7 @@ import ipywidgets as widgets
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-
+import geemap
 
 #ee.Authenticate()
 #ee.Initialize()
