@@ -18,7 +18,7 @@ def get_data(long, lat, start_date, end_date):
 
   # Kankaria Lake, Ahmedabad
 
-  geometry1 = ee.Geometry.Point([72.6026,23.0063])
+  # geometry1 = ee.Geometry.Point([72.6026,23.0063])
 
   geometry = ee.Geometry.Polygon([
     [72.5986408493042,23.006549566021803],
