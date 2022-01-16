@@ -96,26 +96,26 @@ elif add_selectbox == 'About':
     
     st.markdown('<h4>Developments Made</h4>', unsafe_allow_html=True)
     st.markdown('• Water Quality Parameters were identified which includes physical, biological and chemical parameters',unsafe_allow_html=True)
-    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing data used with machine learning &nbsp; and different satellite sources were revised properly.',unsafe_allow_html=True)
+    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing',unsafe_allow_html=True)
+    st.markdown('  &nbsp; data used with machine learning and different satellite sources were revised properly.',unsafe_allow_html=True)
     st.markdown('• Various Data sources were searched in Google Earth Engine and relevant sources were selected for our use-case.',unsafe_allow_html=True)
-    st.markdown('• Analysed the images from the selected sources and applied various standard formulae were applied to analyse the colours of the &nbsp; water body regions.',unsafe_allow_html=True)
+    st.markdown('• Analysed the images from the selected sources and applied various standard formulae were applied to analyse the colours of the water body regions.',unsafe_allow_html=True)
     st.markdown('• Final water quality parameters were selected and their names listed along with their band formulae.',unsafe_allow_html=True)
-    st.markdown('• Various Machine learning models were applied on the final dataframe and the metrics were analysed and the best model was &nbsp; &nbsp; chosen with having a good validation accuracy.',unsafe_allow_html=True)
-    st.markdown('• A visualisation dashboard is created for the public to enter coordinates, their region of interest(water-body) and the data range to &nbsp; get the water quality for that area along with data visualisation of the collected data from the satellites.',unsafe_allow_html=True)
+    st.markdown('• Various Machine learning models were applied on the final dataframe and the metrics were analysed and the best model was chosen with having a good validation accuracy.',unsafe_allow_html=True)
+    st.markdown('• A visualisation dashboard is created for the public to enter coordinates, their region of interest(water-body) and the data range to get the water quality for that area along with data visualisation of the collected data from the satellites.',unsafe_allow_html=True)
 
 
 elif add_selectbox == 'Features':
 
     st.subheader('PROJECT ENDORSEMENTS')
 
-    st.markdown('• ', unsafe_allow_html=True)
-    st.markdown('• ', unsafe_allow_html=True)
-    st.markdown('• ', unsafe_allow_html=True)
+    st.markdown('• Projecting the quality of water bodies in the Kutch Region', unsafe_allow_html=True)
+    st.markdown('• Making it more centralized to analyze and monitor the existing water-body conditions', unsafe_allow_html=True)
+    st.markdown('• Identification of parameters compared with the standard threshold values', unsafe_allow_html=True)
     
     
 elif add_selectbox == 'Select AOI Data Parameters':
 
-   
     
     st.subheader('SELECT FOR AOI DATA PARAMETERS')    
     
