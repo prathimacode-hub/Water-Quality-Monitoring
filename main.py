@@ -392,9 +392,9 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/renju-zachariah-30982247/">Renju Zacharaiah</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/sairam-kannan-8648a0138/">Sai Villiers</a>',
-                unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/ishita-kheria-20b1b31ab/">Ishita Kheria</a>',
+                unsafe_allow_html=True)
+    st.markdown('<a href="https://www.linkedin.com/in/sairam-kannan-8648a0138/">Sai Villiers</a>',
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/prathima-kadari/">Prathima Kadari</a>',
                 unsafe_allow_html=True)
@@ -404,10 +404,11 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/deepali-bidwai/">Deepali Bidwai</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="">Kiran Ryakala</a>',
-                unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/drij-chudasama-2a112a168/">Drij Chudasama</a>',
                 unsafe_allow_html=True)
+    st.markdown('<a href="">Kiran Ryakala</a>',
+                unsafe_allow_html=True)
+    
 
     st.subheader('PROJECT MANAGER')
 
