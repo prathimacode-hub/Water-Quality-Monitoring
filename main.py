@@ -95,13 +95,8 @@ elif add_selectbox == 'About':
                 unsafe_allow_html=True)
     
     st.markdown('<h4>Developments Made</h4>', unsafe_allow_html=True)
-    st.markdown(' \
-        ',
-                unsafe_allow_html=True)
-    st.markdown(' \
-         \
-            '
-                , unsafe_allow_html=True)
+    st.markdown('• Water Quality Parameters were identified which includes physical, biological and chemical parameters',unsafe_allow_html=True)
+    st.markdown('• ',unsafe_allow_html=True)
  
 
 elif add_selectbox == 'Features':
