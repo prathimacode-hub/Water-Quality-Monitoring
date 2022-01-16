@@ -25,6 +25,7 @@ import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import time
+import geemap
 
 
 st.set_page_config(
