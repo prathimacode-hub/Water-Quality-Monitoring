@@ -90,7 +90,7 @@ elif add_selectbox == 'About':
     st.markdown('• Water Quality Indicator Dashboard for Analysis, Interpretation and Visualization near Real Time', unsafe_allow_html=True) 
     st.markdown('• Compare Real Water Quality Parameters with Standard Water Quality Limits', unsafe_allow_html=True) 
     
-    st.markdown('<h4>Location Choosen</h4>', unsafe_allow_html=True)
+    st.markdown('<h4>Locations Choosen</h4>', unsafe_allow_html=True)
     st.markdown('Harmisar Lake, Shinai Lake, Tappar Lake',
                 unsafe_allow_html=True)
     
