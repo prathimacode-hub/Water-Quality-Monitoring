@@ -96,26 +96,26 @@ elif add_selectbox == 'About':
     
     st.markdown('<h4>Developments Made</h4>', unsafe_allow_html=True)
     st.markdown('• Water Quality Parameters were identified which includes physical, biological and chemical parameters',unsafe_allow_html=True)
-    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing',unsafe_allow_html=True)
-    st.markdown('  &nbsp; data used with machine learning and different satellite sources were revised properly.',unsafe_allow_html=True)
+    st.markdown('• Research papers were reviewed and important points were noted for different remote sensing data used with machine learning &nbsp; and different satellite sources were revised properly.',unsafe_allow_html=True)
     st.markdown('• Various Data sources were searched in Google Earth Engine and relevant sources were selected for our use-case.',unsafe_allow_html=True)
-    st.markdown('• Analysed the images from the selected sources and applied various standard formulae were applied to analyse the colours of the water body regions.',unsafe_allow_html=True)
+    st.markdown('• Analysed the images from the selected sources and applied various standard formulae were applied to analyse the colours of the &nbsp; water body regions.',unsafe_allow_html=True)
     st.markdown('• Final water quality parameters were selected and their names listed along with their band formulae.',unsafe_allow_html=True)
-    st.markdown('• Various Machine learning models were applied on the final dataframe and the metrics were analysed and the best model was chosen with having a good validation accuracy.',unsafe_allow_html=True)
-    st.markdown('• A visualisation dashboard is created for the public to enter coordinates, their region of interest(water-body) and the data range to get the water quality for that area along with data visualisation of the collected data from the satellites.',unsafe_allow_html=True)
+    st.markdown('• Various Machine learning models were applied on the final dataframe and the metrics were analysed and the best model was &nbsp; &nbsp; chosen with having a good validation accuracy.',unsafe_allow_html=True)
+    st.markdown('• A visualisation dashboard is created for the public to enter coordinates, their region of interest(water-body) and the data range to &nbsp; get the water quality for that area along with data visualisation of the collected data from the satellites.',unsafe_allow_html=True)
 
 
 elif add_selectbox == 'Features':
 
     st.subheader('PROJECT ENDORSEMENTS')
 
-    st.markdown('• Projecting the quality of water bodies in the Kutch Region', unsafe_allow_html=True)
-    st.markdown('• Making it more centralized to analyze and monitor the existing water-body conditions', unsafe_allow_html=True)
-    st.markdown('• Identification of parameters compared with the standard threshold values', unsafe_allow_html=True)
+    st.markdown('• ', unsafe_allow_html=True)
+    st.markdown('• ', unsafe_allow_html=True)
+    st.markdown('• ', unsafe_allow_html=True)
     
     
 elif add_selectbox == 'Select AOI Data Parameters':
 
+   
     
     st.subheader('SELECT FOR AOI DATA PARAMETERS')    
     
@@ -273,6 +273,9 @@ elif add_selectbox == 'Select AOI Data Parameters':
         st.pyplot(fig, clear_figure = True)
 
 
+
+    
+
     
     if st.button('Submit'):
         
@@ -371,25 +374,14 @@ elif add_selectbox == 'Visualizations':
    
     
 elif add_selectbox == 'Conclusion':
-
-    st.subheader('TECH STACK')
-
-    st.markdown('• Data Collection - Google Earth Datasets', unsafe_allow_html=True)
-    st.markdown('• Data Visualization - Google Earth Engine', unsafe_allow_html=True)
-    st.markdown('• Satellite Imagery Analysis - Google Earth Engine', unsafe_allow_html=True) 
-    st.markdown('• Machine Learning - Python, Jupyter Notebooks, Random Forest', unsafe_allow_html=True) 
-    st.markdown('• Dashboard - Streamlit, Heroku', unsafe_allow_html=True) 
- 
+    
     st.subheader('PROJECT SUMMARY')
 
-    st.markdown('• Water quality is one of the main challenges that societies are facing in the 21st century, threatening human health, limiting food production, reducing ecosystem functions, and hindering economic growth. It corrupts straightforwardly into ecological, financial, and social issues.', unsafe_allow_html=True) 
-    st.markdown('• This dashboard will reinforce the abilities of decision-makers to monitor water quality more effectively and efficiently.', unsafe_allow_html=True) 
-    st.markdown('• As the traditional in situ method is costly as well as time-consuming so using advanced geospatial technology water quality can be monitored spatially and temporally in near real- time and self-operating.', unsafe_allow_html=True) 
-
+    st.markdown('Write Project Summary here', unsafe_allow_html=True) 
     
     st.subheader('CONCLUSION')
     
-    st.markdown('We have created a centralized dashboard to check on with the water conditions visually in real-time. This would help in addressing the water quality needs arised so as to give immediate attention to the users', unsafe_allow_html=True)
+    st.markdown('Write Conclusion here', unsafe_allow_html=True)
     
     
 elif add_selectbox == 'Team':
@@ -402,7 +394,7 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/ishita-kheria-20b1b31ab/">Ishita Kheria</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/sairam-kannan-8648a0138/">Sai Villiers</a>',
+    st.markdown('<a href="https://www.linkedin.com/in/sairam-kannan-8648a0138/">SaiRam Kannan</a>',
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/prathima-kadari/">Prathima Kadari</a>',
                 unsafe_allow_html=True)
@@ -414,7 +406,7 @@ elif add_selectbox == 'Team':
                 unsafe_allow_html=True)
     st.markdown('<a href="https://www.linkedin.com/in/drij-chudasama-2a112a168/">Drij Chudasama</a>',
                 unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/kiran-kumar-ryakala-85631816">Kiran Ryakala</a>',
+    st.markdown('<a href="">Kiran Ryakala</a>',
                 unsafe_allow_html=True)
     
 
