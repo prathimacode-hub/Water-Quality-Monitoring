@@ -8,4 +8,4 @@ Challenge hosted by **Omdena Kutch Chapter**
 
 **Water Quality Monitoring Dashboard Streamlit App** : https://share.streamlit.io/prathimacode-hub/water-quality-monitoring/main/main.py
 
-It's still under progress
+**Water Quality Monitoring Dashboard Heroku App** : https://kutch-water-quality-monitoring.herokuapp.com/
