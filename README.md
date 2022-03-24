@@ -10,6 +10,8 @@ This feature would aid in checking out the conditions in real-time. We have take
 
 **Original Repo Link** : https://github.com/OmdenaAI/omdena-kutch-India-water-qality-monitoring-
 
+**Water Quality Monitoring Dashboard Final Presentation** : https://docs.google.com/presentation/d/1Stb6vlbMlVoujyg-EZp63xcxcBBQg5ME/edit?usp=sharing&ouid=101910884647262199554&rtpof=true&sd=true
+
 **Water Quality Monitoring Dashboard Streamlit App** : https://share.streamlit.io/prathimacode-hub/water-quality-monitoring/main/main.py
 
 **Water Quality Monitoring Dashboard Heroku App** : https://kutch-water-quality-monitoring.herokuapp.com/
